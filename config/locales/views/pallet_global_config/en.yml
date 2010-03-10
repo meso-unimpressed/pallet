@@ -1,0 +1,19 @@
+en:
+  pallet_global_configs:
+    form:
+      root_path: Pallet root directory
+      domain: Server address
+      domain_empty_showing_suggestion: database entry empty, showing a suggestion
+      email_robot_address: Email robot sender address
+      max_upload_file_size: Maximum size for file uploads (MB)
+      theme: Theme
+
+      system_preferences: System Preferences
+      role_association: Automatically associated Roles
+
+      tip:
+        root_path: '<h1>All Pallets will be created below this directory.</h1>Can be an absolute or relative path.<br /><b>Never</b> use the Rails public directory, all files will be accessible without logging in otherwise!<br />If you change the path, all existing pallet data will be moved to the new location.'
+        domain: '<h1>Used for links in invitation mails.</h1>Links in mails will contain the complete server address to allow to open apallet or One-Click-Access by clicking the link.<br />Format: www.example.com (with leading http:// or https://)'
+        email_robot_address: '<h1>Used as sender address for automatically created mails.</h1>Format: robot@example.com'
+        max_upload_file_size: '<h1>Restricts file size to specified value.</h1>Users may upload many files, each with a size smaller than the maximum value. This limit permits the user to upload too big files, but does not prevent thepallet size to grow over a limit.'
+        theme: '<h1>System Theme</h1>Controls colors, rounded corners, etc.'

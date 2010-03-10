@@ -1,0 +1,13 @@
+  	<div class="<%= controller.controller_name == 'user_sessions' ? 'login_frame' : 'flow_frame' -%> clearfix">
+  		<div class="container_16 m-top-10">
+					<div id="flash_box_main" class="flash_box">
+				  <% if flash and (flash[:notice] or flash[:error]) -%>  
+						<%= "<div class=\"ui-state-highlight ui-corner-all\">#{flash[:notice]}</div>" if flash[:notice] and not flash[:notice].blank? %>
+						<%= "<div class=\"ui-state-error ui-corner-all\">#{flash[:error]}</div>"   if flash[:error]  and not flash[:error].blank? %>
+						<script type="text/javascript">
+							$(function() { $("#flash_box_main").delay(5000).slideToggle('slow'); });
+						</script>
+					<% end -%>
+					</div>
+			</div>
+		</div>

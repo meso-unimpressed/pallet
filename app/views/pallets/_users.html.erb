@@ -1,0 +1,29 @@
+<%
+#
+# locals: current_users, [controller_name], pallet_id
+#
+
+  controller_name ||= 'pallets'
+  hide_admin_users ||= false
+  update_div_id ||= 'user_association'
+  scope ||= 'pallets'
+%>
+
+      <% for user in User.find(:all, :order => 'login') -%>
+        <% unless hide_admin_users and user.has_role? 'admin' %>
+					<% access = user_access(current_users, user.id) -%>
+            <%= ui_button_to(:icon => access[:action_class],
+    												 :url => { :controller => controller_name,
+                                       :action => access[:action],
+                                       :id => id,
+                                       :user_id => user,
+                                       :scope => scope },
+    												 :remote  => true,
+    												 :update  => update_div_id,
+    												 :class   => "toggle-box left #{access[:box_class] }",
+														 :title   => user.login,
+														 :type 		=> 'toggle-box',
+														 :active  => access[:authorized])
+            %>
+        <% end -%>
+      <% end -%>

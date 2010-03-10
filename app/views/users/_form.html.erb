@@ -1,0 +1,74 @@
+<% form_for @user do |f| %>
+
+  <div class="container_16 clearfix">
+    <div class="grid_16 m-bottom-30">
+      <%= f.error_messages %>
+    </div>
+  </div>
+
+  <%= focus_input_field_onload(f, :login) %>
+
+  <div class="container_16 clearfix">
+    <div class="grid_5 suffix_11">
+      <%= f.label t('.login') %>
+      <%= f.text_field :login, :readonly => !@user.new_record? %>
+    </div>
+  </div>
+
+  <div class="container_16 clearfix">
+    <div class="grid_5 suffix_11">
+      <%= f.label t('.email') %>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <div class="container_16 clearfix">
+    <div class="grid_5 suffix_11">
+      <%= f.label t('.name') %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="container_16 clearfix">
+    <div class="grid_5 suffix_11">
+      <%= f.label t('.language') %>
+      <%= f.select(:language, PalletGlobalConfig.available_locales, { :selected => (f.object.language || 'en') },
+                   :tooltip => '',
+                   :tooltip_opt => '') %>
+    </div>
+  </div>
+
+  <% if logged_in? and @user.ldap_auth %>
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <%= f.label t('.password') %>
+        <textarea class="h-50" readonly="true"><%= t('.ldap_change_password') %></textarea>
+      </div>
+    </div>
+
+  <% else %>
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <%= f.label t('.password') %>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <%= f.label t('.password_confirmation') %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+  <% end %>
+
+
+  <div class="container_16 m-top-30 clearfix">
+    <div class="grid_1 suffix_15">
+      <a href="" class="button-icon-text ui-state-default ui-corner-all left m-bottom-15" onclick="$('#user_submit').click();return false;"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span><%= t('save') -%>
+      </a>
+      <%= f.submit 'save', :class =>"hidden" %>
+    </div>
+  </div>
+
+<% end %>

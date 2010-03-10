@@ -1,0 +1,26 @@
+de:
+  users:
+    index:
+      system_users: System Benutzer
+      users: Benutzer
+      add_user: hinzufügen
+      login_name: Login Name
+      accessible_pallet: Zugriff auf Pallets
+      confirm_destroy: Benutzer '{{name}}' löschen?
+
+    new:
+      add_user: Benutzer hinzufügen
+
+    edit:
+      edit_user: Benutzer bearbeiten
+      edit_account: Account bearbeiten
+      associated_roles: Zugewiesene Rollen
+
+    form:
+      login: Login
+      email: Email
+      name: Name
+      language: Sprache
+      password: Passwort
+      password_confirmation: Passwort Wiederholung
+      ldap_change_password: Bitte kontaktieren Sie den LDAP Administrator, um Ihr Passwort zu ändern.

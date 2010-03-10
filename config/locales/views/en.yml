@@ -1,0 +1,19 @@
+en:
+  manage_users_for_pallet: Manage users for this Pallet Role &raquo;{{name}}&laquo;
+  manage_roles_for_pallet: Manage roles for this Pallet &raquo;{{name}}&laquo;
+
+  navi:
+    button:
+      options: Options
+      options_config: Configuration
+      options_users: Users
+      options_roles: Roles
+      options_delete: Delete
+      pallet_new: New Pallet
+      system: System
+      system_prefs: Preferences
+      system_users: Users
+      system_roles: Roles
+      system_history: Login History
+      my_account: My Account
+      logout: Logout

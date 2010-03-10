@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  directory: MyString
+  description: MyString
+  oca_generation_by_users: false
+  is_readonly: 
+
+two:
+  name: MyString
+  directory: MyString
+  description: MyString
+  oca_generation_by_users: false
+  is_readonly: 

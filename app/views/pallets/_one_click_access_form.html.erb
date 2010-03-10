@@ -1,0 +1,51 @@
+<% tooltip_opt = tooltip_options(:show_delay => 0, :position => 'n', :hide_fixed => false, :solo => true) %>
+
+<script type="text/javascript">
+  initialize_date_picker('<%= current_user.language %>');
+  enable_oca_file_download();
+</script>
+
+<% form_remote_tag :url => { :action => :add_one_click_access } do %>
+  <label class="m-top-15"><%= t '.expiration_date' -%></label>
+  <div id="date_picker"></div>
+  <br/>
+
+  <!-- checkbox disabled on default, may only be enabled if only one single file is selected, will be handled by js -->
+  <div id="oca_download" class="container_16 clearfix inactive">
+    <div class="grid_1 alpha">
+      <%= check_box_tag 'pallet_one_click_access[download]', '', false, { :disabled => true, :class => 'checkbox' } %>
+    </div>
+    <div class="grid_15 omega">
+      <label for="pallet_one_click_access_download">
+        <span tooltip="<%= t('.tip.download') %>" tooltip_opt="<%= tooltip_opt %>">
+          <%= t('.download') %>
+          <span id="pallet_one_click_access_download_filename"></span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="container_16 clearfix">
+    <div class="grid_13 alpha">
+      <label for="pallet_one_click_access_email_receivers"><%= t '.send_access_to' %></label>
+      <%= text_field :pallet_one_click_access, :email_receivers, :tooltip => t('.tip.send_access_to'), :tooltip_opt => tooltip_opt %>
+    </div>
+    <div class="grid_3 omega">
+      <label for="pallet_one_click_access_language"><%= t('users.form.language') %></label>
+      <%= select( :pallet_one_click_access, :language, PalletGlobalConfig.available_locales, { :selected => current_user.language }, {:class => 'right', :tooltip => t('.tip.language'), :tooltip_opt => tooltip_opt } ) %>
+    </div>
+  </div>
+    
+  <div class="container_16 clearfix">
+    <div class="grid_16 alpha omega">
+      <label for="pallet_one_click_access_email_notes"><%= t '.email_notes' -%></label>
+      <%= text_area( :pallet_one_click_access, :email_notes, :class => 'h-50', :tooltip => t('.tip.email_notes'), :tooltip_opt => tooltip_opt) %>
+    </div>
+  </div>
+
+  <%= hidden_field :pallet_one_click_access, :expires_at %>
+  <%= hidden_field :pallet_one_click_access, :sub_path, :value => @sub_path %>
+  <%= hidden_field :pallet_one_click_access, :pallet_id, :value => @pallet.id %>
+
+  <%= submit_tag t('create'), :id => 'submit_button_one_click_access', :style => 'display:none;' %>
+<% end %>

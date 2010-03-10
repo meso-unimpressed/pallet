@@ -1,0 +1,65 @@
+<% custom_javascripts '/javascripts/unobtrusive/user_sessions/new.js' %>
+<% page_title "Login" %>
+<% tooltip_opt = tooltip_options(:show_delay => 0, :position => 'n-s', :hide_fixed => true) %>
+
+		    <!-- main menu (fixed)  -->
+ 		    <div id="pallet_nav" class="clearfix png">
+ 		      <div id="pallet_selection" class="left"></div>
+        </div>
+        <!-- main menu (fixed) -->
+
+		    <!-- pallet info -->
+  		  <div id="pallet_info" class="clearfix png">
+          <div class="flow_frame clearfix m-top-15">
+  	        <div class="container_16">
+  	          <div class="grid_8 alpha"><div id="logo" class="png"></div></div>
+              <div class="grid_8 omega"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pallet_info_bottom png"></div>
+        <!-- pallet info -->
+
+        <div class="login_container flash">
+          <div class="m-left-10">
+            <%= render :partial => 'common/flash', :locals => { :flash => flash } %>
+          </div>
+        </div>
+
+       <!-- login  -->
+       <div class="login_container main">
+          <div class="login_msg">
+            <%= t ('.login_msg') %>
+          </div>
+
+          <div class="bordure_top login_frame clearfix png"></div>
+          <div class="login_frame wd_frame ui-corner-all clearfix">
+             <div class="ui-widget ui-widget ui-widget-content noborder">
+             <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="padding: 7px 5px 5px 5px;"><%= t '.title' %></div>
+             </div>
+             <div class="login_box ui-widget ui-widget-content noborder">
+                <% form_for @user_session do |f| %>
+                <div class="m-top-15">
+                <%= f.label :login, (t '.login') %>
+                <%= f.text_field :login, :class => '' %>
+                </div>
+                <div>
+                <%= f.label :password, (t '.password') %>
+                <%= f.password_field :password %>
+                </div>
+            </div>
+            <div class="login_box ui-widget ui-widget-content noborder clearfix">
+              <div>
+              <%= f.submit "Submit", :class => 'hidden' %>
+              <a href="" onClick="$('#user_session_submit').click();return false;" class="button-icon-text ui-state-default ui-cornerl-all right"><span class="ui-icon ui-icon-key"></span><%= t '.submit' %></a>
+              </div>
+             <% end %>
+           </div>
+         </div>
+         <!-- pallet credit -->
+          <div id="pallet-credit" class="login_frame m-left-15 clearfix">
+              <a href="http://pallet.meso.net"><%= image_tag "/theme/#{PalletGlobalConfig.theme}/images/pallet_logo.png", :tooltip => t('pallet_credits'), :tooltip_opt => tooltip_opt, :class => "right png" %></a>
+          </div>
+          <!-- /pallet credit -->
+      </div>
+      <!-- /login -->

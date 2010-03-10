@@ -1,0 +1,28 @@
+<% if @one_click_access.email_notes != '' -%>
+<%= @one_click_access.email_notes %>
+<% else %>
+Guten Tag,
+
+für Sie wurde ein Direktzugang (One-Click-Access) zur Ablage '<%= @one_click_access.pallet.name %>'
+auf <%= PalletGlobalConfig.domain %> erstellt.
+<% end -%>
+
+----------------------------------------------------------------------
+- Bitte nutzen Sie folgenden Link für den Datentransfer:
+-
+-   <%= url_for :host => PalletGlobalConfig.domain,
+                :protocol => PalletGlobalConfig.domain_ssl? ? 'https' : 'http',
+                :controller => 'oca', :action => @one_click_access.token %>
+-
+- Dieser Zugang ist gültig bis:
+-
+-   <%= I18n.l( @one_click_access.expires_at, :format => :default, :locale => :de) %>
+----------------------------------------------------------------------
+
+--
+MESO Digital Interiors GmbH
+MESO Web Scapes
+Niddastraße 84
+60329 Frankfurt
+Germany
++49 (0)69 24 000 330

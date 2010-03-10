@@ -1,0 +1,6 @@
+      <% form_tag '/pallets/create_dir', :id => 'form_new_directory' do -%>
+        <%= text_field_tag('dir_name', {}, :onchange => "$('#dir_name').attr('value', permalink_format($('#dir_name').attr('value')))",
+                                           :onkeyup  => "$('#dir_name').attr('value', permalink_format($('#dir_name').attr('value')))") %>
+        <%= hidden_field_tag 'sub_path_for_new_dir', @sub_path %>
+        <%= submit_tag 'Create', :id => 'submit_button_new_directory', :style => 'display:none' %>
+      <% end %>

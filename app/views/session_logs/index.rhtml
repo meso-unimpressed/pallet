@@ -1,0 +1,45 @@
+<% page_title title = t('.login_history') %>
+
+<%= custom_javascripts '/javascripts/unobtrusive/login_log/index.js' %>
+
+  <!-- working directory -->
+  <div id="wd_container" class="ui-widget-content ui-corner-all noborder">
+
+    <div class="container_16 clearfix">
+      <h2 class="grid_16 m-top-30 m-bottom-15"><%= title %></h2>
+    </div>
+
+    <div class="container_16 clearfix">
+      <% row_number = 0 %>
+      <div id="d_<%= row_number %>" class="sort_box">
+        <div class="grid_3"><strong><%= t '.login_name' %></strong></div>
+        <div class="grid_3"><strong><%= t '.one_click_access' %></strong></div>
+        <div class="grid_3"><strong><%= t '.recently_accessed_pallet' %></strong></div>
+        <div class="grid_3"><strong><%= t '.one_click_access_creator' %></strong></div>
+        <div class="grid_2"><strong><%= t '.login_time' %></strong></div>
+        <div class="grid_2"><strong><%= t '.logout_time' %></strong></div>
+      </div>
+    </div>
+
+    <% @session_logs.each do |log| %>
+      <% row_number += 1 %>
+      <div id="d_<%= row_number %>" class=" container_16 row_box">
+        <div class="grid_3"><%= link_to_user_email(log.user) %>&nbsp;</div>
+        <div class="grid_3"><%= log.oca_token.to_s %>&nbsp;</div>
+        <div class="grid_3"><%= log.pallet.name if log.pallet %>&nbsp;</div>
+        <div class="grid_3">
+          <%= mail_to(log.oca_creator.email, log.oca_creator.login) if (log.oca_creator and not log.oca_creator.email.blank?) %>
+          <%= log.oca_creator.login if (log.oca_creator and log.oca_creator.email.blank?) %>
+          &nbsp;
+        </div>
+        <div class="grid_2"><%= l(log.logged_in_at, :format => :date_time24) %>&nbsp;</div>
+        <div class="grid_2"><%= l(log.logged_out_at, :format => :date_time24) if log.logged_out_at %>&nbsp;</div>
+      </div>
+    <% end %>
+
+    <div class="container_16 clearfix">
+      <div class="grid_16 m-top-15 m-bottom-15"><%= will_paginate(@users) %></div>      
+    </div>
+  </div>
+  <!-- /working directory -->
+

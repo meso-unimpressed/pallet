@@ -1,0 +1,14 @@
+<ul>
+  <%
+     n = []
+     n = [ { :label => t('navi.button.system_prefs'), :link => '/pallet_global_configs' } ] if (current_user_has_role? 'system_admin')
+     n += [
+       { :label => t('navi.button.system_users'),   :link => '/users' },
+       { :label => t('navi.button.system_roles'),   :link => '/roles' },
+       { :label => t('navi.button.system_history'), :link => '/session_logs' } ]
+     n.each do |l| %>
+  <li class="nav_item">
+    <%= link_to(l[:label], l[:link], :onclick => "document.location=\"#{l[:link]}\"") %>
+  </li>
+  <% end %>
+</ul>

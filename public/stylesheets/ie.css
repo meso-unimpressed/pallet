@@ -1,0 +1,10 @@
+
+textarea {
+  overflow: auto;
+}
+
+/* tooltip re-scaling with ajax tooltips doesn't work, so set it before load */
+#qtip_oca_loading {
+  width: 510px;  
+}
+

@@ -1,0 +1,33 @@
+<% unless @user.id == current_user.id %>
+  <% page_title title = t('.edit_user') %>
+  <%= custom_javascripts '/javascripts/unobtrusive/user/common.js' %>
+<% else %>
+  <% page_title title = t('.edit_account') %>
+  <%= custom_javascripts '/javascripts/unobtrusive/user/edit.js' %>
+<% end %>
+
+
+<!-- content container -->
+<div id="wd_container" class="ui-widget-content ui-corner-all noborder">
+  <div class="container_16 clearfix">
+    <div class="grid_16 m-top-30">
+      <h2 class="m-bottom-15"><%= title %></h2>
+    </div>
+  </div>
+
+  <%= render :partial => 'form' %>
+
+  <div class="container_16 clearfix">
+    <div class="grid_16 m-top-30">
+      <% if current_user.has_role? 'admin' %>
+        <h2 class="m-bottom-15"><%= t '.associated_roles' %></h2>
+        <div id="role_association" class="content_box">
+          <%= render :partial => 'pallets/roles', :locals => { :id => @user.id,
+                                                               :current_roles => @user.role_ids,
+                                                               :show_admin_roles => current_user.has_role?('system_admin') } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- / content container -->

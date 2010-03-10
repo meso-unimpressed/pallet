@@ -1,0 +1,97 @@
+/* TwinHelix png-fix */
+/* http://www.twinhelix.com/css/iepngfix/ */
+/* CAUTION: DO NOT USE THE JQUERY PNGFIX!!! */
+.png
+{
+  behavior:url("/htc/iepngfix.htc");
+}
+
+/* =MAIN MENU
+--------------------------------------------------------------------------------*/
+#pallet_selection {
+	padding-left: 2px;
+}
+#pallet_option {
+	position: relative;
+	height: 25px;
+	padding: 6px 4px 6px 2px;
+}
+
+/* =Working Directory (WD)
+--------------------------------------------------------------------------------*/
+#wd_action_top_container {
+	/*height: 52px;*/
+  /*height: 30px;*/
+}
+
+/* drop stack temporarily deactivated */
+#drop_stack {
+  display:none;
+}
+
+/* dialog seems to override element.style with min-with which isn't interpreted */
+#new-directory {
+  height: 54px !important; 
+}
+
+/* tooltip is scaled to 100% width for unknown reasons */
+#pallet_about_qtip {
+  width: 320px;
+  min-width: 320px;
+}
+
+/* tooltip re-scaling with ajax tooltips doesn't work, so set it before load */
+#qtip_oca_loading {
+  width: 510px;  
+}
+
+#pallet_nav {
+  position: absolute;
+  z-index: 0;
+}
+
+/*
+ * TODO!!!
+ * 
+ */
+
+/* default theme specific? */
+#pallet_info {
+  padding-top: 53px;
+  width: 100%;
+  height: 90px;
+  margin-bottom: 3px;
+  z-index: -2; /* else slidedown menus will be behind this element */
+}
+
+.pallet_info_bottom {
+  margin-top: -3px;
+  height: 12px;
+}
+
+/*
+ * TODO!!!
+ */
+.bordure_top.wd_bordure {
+  margin-top: 0px;
+  height: 7px;
+  padding-left: 0px;
+}
+
+#content_container {
+  margin-top:7px;
+}
+
+#wd_container {
+  padding-bottom: 0px;
+}
+
+.login_container.main {
+  position: relative;
+}
+.login_container.main .bordure_top {
+  margin-top: 0px;
+  height: 7px;
+  margin-left: 10px;
+}
+

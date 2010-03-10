@@ -1,0 +1,61 @@
+
+# route where the user will be redirected to after successful login via login_url
+redirect_after_login: /
+
+# route where the user will be redirected after logout (route)
+redirect_after_logout: /
+
+# after how many minutes of inactivity a user should be logged out.
+# set to 0 or leave empty if no timeout should occur (not recommended).
+login_timeout: 120
+
+# this enables/disables ldap authentication
+# all ldap options are ignored if ldap_auth is disabled
+enable_ldap: false
+
+ldap:
+  # if a user tries to login and the account doesn't exist,
+  # the module automatically tries to import his credentials from ldap
+  auto_import: true
+
+  # the LDAP server settings
+  # and base DN path. the complete dn path is expected (without uid=<login>)
+  # authorization is done with "<host_base_dn>,uid=<login>"
+  host_ip: ldap.example.com
+  host_port: 389
+  host_base_dn: ou=People,dc=example,dc=com
+
+  # these are the user credential field attribute names
+  # from where user info is automatically extracted
+  attribute_username: uid
+  attribute_mail: mail
+  attribute_name: cn
+
+  # these default credentials are used if they couldn't be imported from ldap
+  # comment out or leave blank if you don't want a default filled in
+  default_user_email: unknown_ldap@example.com
+  default_user_name: unknown ldap user
+
+  # list of default roles that are assigned to a user that has been
+  # automatically been imported from ldap (auto_import: true)
+  # separate multiple roles by space, leave empty if no role should be assigned
+  default_roles: admin
+
+  # validates ldap options with given values, returns authentication only if
+  # all options match given value.
+  # set up validations like this:
+  # ['option', 'valid value'] or
+  # [ ['option1', 'valid value 1'], ['option2', 'valid value 2'] ]
+  #
+  # use an array of values to test for one of them (logical OR) [NYI!]
+  #
+  #validate_additional_fields: ['employeeType', 'core']
+
+  # authenticates if user doesn't have field 'option' set to 'value'
+  # for format, see 'validate_additional_fields' description above
+  # example: ['userStatus', 'banned']
+  #
+  # use an array of values to test for one of them (logical AND NOT, blacklist-like) [NYI!]
+  #
+  #validate_additional_fields_not_set: ['hasCalendar', 'false']
+

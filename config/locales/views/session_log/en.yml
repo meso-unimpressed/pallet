@@ -1,0 +1,10 @@
+en:
+  session_logs:
+    index:
+      login_history: Login History
+      login_name: Login Name
+      recently_accessed_pallet: Recently Accessed Pallet
+      one_click_access: One Click Access
+      one_click_access_creator: OCA created by
+      login_time: Login Time
+      logout_time: Logout Time

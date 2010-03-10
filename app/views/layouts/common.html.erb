@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <% default_page_title_prefix = 'PALLET© MESO Web Scapes ' -%>
+    <title><%= title_customized_by_view((yield :title), default_page_title_prefix) %></title>    
+    
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <meta http-equiv="content-language" content="en" />
+
+    <!-- global stylesheets -->
+    <%= stylesheet_link_tag 'reset',
+                            '960-fluid',
+                            'fg.menu',
+                            'pallet_main',
+                            :cache => 'cached_stylesheets'  
+    %>
+
+    <!-- Theme Stylesheet -->
+    <%= stylesheet_link_tag "../theme/#{PalletGlobalConfig.theme}/theme" %>
+    <%= stylesheet_link_tag "../theme/theme_overwrite" %>
+
+    <!--[if IE]>
+      <%= stylesheet_link_tag '960-fluid-ie' %>
+      <%= stylesheet_link_tag 'ie' %>
+    <![endif]-->
+    <!--[if IE 7]>
+      <%= stylesheet_link_tag 'ie7' %>
+    <![endif]-->
+    <!--[if IE 6]>
+      <%= stylesheet_link_tag '960-fluid-ie6' %>
+      <%= stylesheet_link_tag 'ie6' %>      
+    <![endif]-->
+
+    <%= stylesheet_link_tag 'jquery.autocomplete' %>
+
+    <%= yield :stylesheets %>
+
+
+    <!-- debugging helper scripts -->
+    <% if Rails.env == 'development' %>
+      <%= javascript_include_tag 'debug', 'object_inspection' %>
+    <% end %>
+    
+    <!-- jquery -->
+    <%= javascript_include_tag 'jquery/jquery-1.4.1.min',
+                               'jrails',
+                               # jquery ui
+                               'jquery-ui/jquery-ui-1.7.2.custom.min',
+                               'fg.menu',
+                               # jquery plugins
+                               'jquery.delay',
+                               'jquery.json-1.3',
+                               'auto_complete/jquery.autocomplete.min',
+                               'scrollto/jquery.scrollTo-min',
+                               'get_css',
+                               'qtip/jquery.qtip-1.0.0-rc3',
+                               'qtip/qtip.themeroller',
+                               'qtip/qtip.initialize',
+                               'no_text_select',
+                               # i18n
+                               'i18n',
+                               'i18n_modal_dialog_buttons',
+                               'messages',
+                               # custom_scripts
+                               'main_menu',
+                               'modal_confirm',
+                               'application',
+                               'file_table_selection',
+                               :cache => 'cached_javascripts'
+    %>
+
+    <%= javascript_include_tag 'zero_clipboard/ZeroClipboard.js' %>
+
+    <%= javascript_tag "BGIFRAME = false;" %>
+    <!--[if IE 6]>
+      <%= javascript_include_tag '/htc/iepngfix_tilebg.js' %>      
+      <%= javascript_tag "BGIFRAME = true;" %>
+      <%= javascript_include_tag 'jquery.bgiframe.min' %>
+    <![endif]-->
+
+    <%= javascript_tag javascript_constant_definition %>
+    <%= yield :javascripts %>
+
+    <!-- initialize JavaScript localization -->
+    <%= javascript_tag "I18n.defaultLocale = '#{I18n.default_locale}'" %>
+    <%= javascript_tag "I18n.locale = '#{I18n.locale}'" %>
+
+    <link rel="shortcut icon" href="/favicon.ico" />    
+  </head>
+
+
+
+  <body>
+    <% unless controller.controller_name == 'user_sessions' %>
+  		<!-- main menu  -->
+      <%= render :partial => 'layouts/main_menu' %>
+  		<!-- /main menu -->
+
+		  <!-- pallet info -->
+  		<div id="pallet_info" class="clearfix png">
+        <div class="flow_frame clearfix m-top-15">
+  			  <div class="container_16">
+  			    <div class="grid_8 alpha">
+  			      <div id="logo" class="png"></div>
+            </div>
+            <div class="grid_8 omega"></div>
+          </div>
+        </div>
+  		</div>
+
+      <div class="pallet_info_bottom png"></div>
+		  <!-- pallet info -->
+
+      <div id="error_flash_container">
+        <%= render :partial => 'common/flash', :locals => { :flash => flash } %>
+      </div>
+
+      <!-- content container -->
+      <div class="bordure_top wd_bordure flow_frame clearfix png"></div>
+      <div id="content_container" class="flow_frame wd_frame ui-corner-all clearfix">
+        <%= yield %>
+      </div>
+      <!-- /content container -->
+
+      <!-- pallet credit -->
+        <div id="pallet-credit" class="flow_frame clearfix">
+          <div class="container_16">
+            <div class="grid_8 alpha"></div>
+            <div class="grid_8 right"><a href="http://pallet.meso.net">
+              <%= image_tag "/theme/#{PalletGlobalConfig.theme}/images/pallet_logo.png",
+                            :tooltip => t('pallet_credits'), :tooltip_opt => tooltip_options(:show_delay => 0, :position => 'e-w', :hide_fixed => true),
+                            :alt => '',
+                            :class => "right png" %>
+            </a></div>
+          </div>
+        </div>
+      <!-- /pallet credit -->
+
+    <% else %>
+      <%= yield %>
+    <% end %>
+	</body>
+</html>

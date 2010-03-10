@@ -1,0 +1,14 @@
+<% page_title title = t('.add_role') %>
+
+<%= custom_javascripts '/javascripts/unobtrusive/role/common.js' %>
+
+<!-- content container -->
+<div id="wd_container" class="ui-widget-content ui-corner-all noborder">
+  <div class="container_16 clearfix">
+    <div class="grid_16 m-top-30">
+      <h2 class="m-bottom-15"><%= title %></h2>
+    </div>
+  </div>
+  <%= render :partial => 'form' %>
+</div>
+<!-- / content container -->

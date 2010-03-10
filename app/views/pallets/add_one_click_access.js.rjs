@@ -1,0 +1,13 @@
+page.replace_html 'oca_count', @pallet.one_click_access_list.size
+page.replace 'oca_list', :partial => 'one_click_access_list'
+
+# recreate tooltips. if no tooltip existed and the first one is created,
+# the content will be bigger than the tooltip size. recreating fixes this.
+page.call 'eval', '$("#bt-share").qtip("destroy");'
+page.call 'init_qtips', '#bt-share'
+
+# close dialog
+page.call 'eval', '$("#one_click_access").dialog("close");'
+
+# render flash into main document, since we closed the dialog
+page.replace_html 'error_flash_container', :partial => 'common/flash', :locals => { :flash => flash }

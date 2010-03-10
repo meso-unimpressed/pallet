@@ -1,0 +1,53 @@
+
+<% hide_if_ie6 do %>
+  <%= javascript_include_tag 'swfobject.js', 'uploadify/jquery.uploadify.v2.1.0.js' -%>
+
+  <%= render :partial => 'uploadify_js_code' %>
+<% end %>
+
+  <!-- file upload html fallback (will be replaced by uploadify flash upload button) -->
+  <div id="uploadify_button_qtip" style="text-align: center" tooltip="<%= t('tooltip.uploadify') %>" tooltip_opt="<%= tooltip_options(:show_ready => true, :position => 's') %>">
+    <div id="uploadify">
+      <form action="/upload?non_swf_upload=1" enctype="multipart/form-data" id="file_upload" method="post">
+        <input id="upload_authenticity_token" name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <input id="upload_pallet_id" type="hidden" name="id" value="<%= @pallet.id %>" />
+        <input id="non_swf_upload_sub_path" type="hidden" name="sub_path" value="<%= @sub_path %>" />
+        <input type="file" name="Filedata" class="file_select" />
+        <br />
+        <input id="non_swf_submit_button" type="submit" class="ui-button-text ui-state-default ui-corner-all" onclick="$('#loader_bar').show();" value="<%= t('submit') %>" />
+        <br />
+        <%= image_tag 'ajax-loader-bar.gif', :id => 'loader_bar', :style => 'display:none' %>
+      </form>
+    </div>
+  </div>
+
+<% hide_if_ie6 do %>
+  <!-- jQuery Uploadify cancel button and queue -->
+  <a id="uploadify_clear_queue_button" class="button-icon-text ui-corner-all ui-state-default" href="#" onclick="$('#uploadify').data('manual_cancel', true); $('#uploadify').uploadifyClearQueue(); return false;">
+    <span class="ui-icon ui-icon-cancel"></span><%= t('.cancel_all_uploads') %>
+  </a>
+  <div id="fileQueue" class="m-top-15"></div>
+
+  <!-- toggle multi / single file upload -->
+  <a href="#" id="single_multi_toggle">
+    <span id="single_upload">Single File Upload</span>
+    <span id="multi_upload" style="display:none;">Multi File Upload</span>
+  </a>
+  
+  <script type="text/javascript">
+    $(function() {
+      $('#single_multi_toggle').click(function (){
+        $("#uploadifyUploader, #uploadify, #single_upload, #multi_upload").toggle();
+        if ($("#uploadify_button_qtip").css("text-align") == "left") {
+          $("#uploadify_button_qtip").css("text-align", "center");
+          $("#uploadify_button_qtip").qtip("enable");
+        }
+        else {
+          $("#uploadify_button_qtip").css("text-align", "left");
+          $("#uploadify_button_qtip").qtip("disable");
+        }
+        return false;
+      });  
+    });
+  </script>
+<% end %>

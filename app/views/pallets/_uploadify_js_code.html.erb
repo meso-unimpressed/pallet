@@ -1,0 +1,95 @@
+<%
+  size_limit ||= PalletGlobalConfig.max_upload_file_size_byte
+%>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        if (!$("#uploadify").data('initialized')) {
+            /*
+             * http://www.uploadify.com/documentation/
+             */
+            $("#uploadify").uploadify({
+                /*-- paths --*/
+                'script'        : '/upload', // recieving script
+                'checkScript'   : '/pallets/upload_check',
+                'uploader'      : '/swf/uploadify.swf',
+                'cancelImg'     : '/images/cancel.png',
+
+                /*-- settings --*/
+                /* WARNING: any unencoded special char in scriptData will silently break everything in IE/IE6 */
+                'scriptData'    : { 'sub_path'           : encodeURIComponent('<%= @sub_path %>'),
+                                    'id'                 : encodeURIComponent('<%= @pallet.id %>'),
+                                    'oca_token'          : encodeURIComponent('<%= session[:oca_token] %>'),
+                                    'authenticity_token' : encodeURIComponent('<%= escape_javascript form_authenticity_token %>'),
+                                    'session_data'       : encodeURIComponent('<%= request.cookies["_pallet_session"] %>') },
+                'fileDesc'      : '<%= @pallet.file_types_description_format %>', // must be set if fileExt is set
+                'fileExt'       : '<%= @pallet.file_types_filter_format %>', // allowed extensions i.e. '*.ext1;*.ext2'
+                'sizeLimit'     : '<%= size_limit %>', // max bytes for each uplaod
+
+                'queueID'       : 'fileQueue',
+                'wmode'         : 'transparent',
+                'auto'          : true, // autostart
+                'multi'         : true, // mulitple file uploads
+
+                /*-- handlers --*/
+                'onSelectOnce'  : function(event, data) {
+                    $('#uploadify_clear_queue_button').css('visibility', 'visible');
+                    $(".uploadifyQueueItem .fileName:not(.has-icon)").before('<span class="ui-icon ui-icon-transferthick-e-w icon-inline left"></span>')
+                    $(".uploadifyQueueItem .fileName").addClass("has-icon");
+                    $(".uploadifyQueueItem").addClass("ui-corner-all ui-widget-header");
+                },
+
+                'onOpen'        : function(event, queueID, fileObj) {
+                    if ($("#uploadify").data('element_count') == undefined)
+                        $("#uploadify").data('element_count', 0);
+
+                    if (($("#uploadify").data('element_count') + 1) % 4 == 0)
+                        $('#upload').scrollTo('#uploadify' + queueID, 500, { easing:'swing', queue: true, offset: -60 });
+
+                    $("#uploadify").data('element_count', $("#uploadify").data('element_count') + 1);
+                },
+
+                'onComplete'    : function(event, queueID, fileObj, response, data) {
+                    // on success response will be ' ' and default onComplete handler will be triggered
+                    if (response.length != 1) {
+                        var data = eval("(" + response + ")");
+                        if (data.message) {
+                            queue_item_add_error(queueID, data.message);
+                            return false;
+                        }
+                    } else {
+                        $("#uploadify" + queueID).addClass('ui-state-highlight');
+                        $("#uploadify" + queueID + " .ui-icon-transferthick-e-w").replaceWith('<span class="ui-icon ui-icon-info icon-inline left"></span>')
+                        $("#uploadify" + queueID + " .uploadifyProgress").fade();
+                        $("#uploadify" + queueID + " .cancel").fade();
+                        return false;
+                    }
+                },
+
+                'onCancel'      : function(event, queueID, fileObj, data) {
+                    queue_item_add_error(queueID, '<%= t('.cancelled_exists') %>');
+                    if(data.fileCount == 0)
+                      $("#uploadify_clear_queue_button").css('visibility', 'hidden');
+                    return false;
+                },
+
+                'onClearQueue' : function(fileCount, allBytesTotal) {
+                    $("#uploadify_clear_queue_button").css('visibility', 'hidden');
+                },
+
+                'onAllComplete' : function(event, data) {
+                    $("#uploadify_clear_queue_button").css('visibility', 'hidden');
+                }
+            });
+
+            $("#uploadify").data('initialized', true); // prevent double initialization
+        }
+    });
+    function queue_item_add_error(queueID, error_message) {
+        $("#uploadify" + queueID).addClass('uploadifyError ui-state-error');
+        $("#uploadify" + queueID + " .ui-icon-transferthick-e-w").replaceWith('<span class="ui-icon ui-icon-alert icon-inline left"></span>');
+        $("#uploadify" + queueID + " .percentage").text(' - ' + error_message);
+        $("#uploadify" + queueID + " .uploadifyProgress").fade();
+        $("#uploadify" + queueID + " .cancel").fade();
+    }
+</script>

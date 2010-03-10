@@ -1,0 +1,43 @@
+<% page_title 'Pallet: ' + @pallet.name %>
+
+<div id="wd_tabs" class="container_16 ui-widget-content ui-corner-all ui-tabs noborder ui-widget">
+  <!-- path -->
+  <ul id="path" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-corner-all ui-widget-header">
+    <%= path_for @sub_path %>
+  </ul>
+</div>
+
+<%= render :partial => 'action_container_top' %>
+
+<!-- working directory -->
+<div id="wd_container" class="ui-widget-content noborder file_table">
+  <%= render :partial => 'file_table' %>
+</div>
+<!-- /working directory -->
+
+<!-- modal dialogs -->
+<% unless @pallet.is_readonly and not (current_user_has_role? 'admin') %>
+  <div id="upload" title="<%= t '.upload_files' %>" style="display:none" class="m-top-15">
+    <img src="/images/ajax-loader.gif" />
+  </div>
+
+  <div id="new-directory" title="<%= t '.create_directory' %>" style="display:none">
+    <%= render :partial => 'new_directory' -%>
+  </div>
+
+  <div id="file_table_element_rename" title="<%= t '.rename_element' %>" style="display:none">
+    <%= render :partial => 'rename' -%>
+  </div>
+
+  <div id="collection_zip" title="<%= t '.zip_collection' %>" style="display:none">
+    <%= render :partial => 'collection_zip' -%>
+  </div>
+<% end %>
+
+<% if one_click_access_generation_allowed? and logged_in? %>
+  <div id="one_click_access" title="<%= t '.manage_oca' %>" style="display:none">
+    <img src="/images/ajax-loader.gif" />
+  </div>
+<% end %>
+<!-- /modal dialogs -->
+

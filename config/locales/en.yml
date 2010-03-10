@@ -1,0 +1,53 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  # project specific common words
+  pallet: Pallet
+  descending: descending
+  ascending: ascending
+
+
+
+  #
+  # Default Project Independent Localizations
+  #
+
+  languages:
+    en: english
+    de: german
+    
+  # common words
+  submit: Submit
+  save: Save
+  create: Create
+  edit: Edit
+  delete: Delete
+  done: Done
+  close: Close
+  ok: Ok
+  cancel: Cancel
+  none: none
+  options: Options
+
+  # common phrases
+  please_confirm: Please confirm 
+  are_you_sure: Are you sure?
+
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %I:%M%p"
+      short: "%m/%d/%Y %I:%M%p"
+      long: "%A, %d. %B %Y, %I:%M%p"
+      time: "%I:%M%p"
+      date_time24: "%m/%d/%Y %H:%M"
+
+  pallet_credits: '<div id="pallet_about_qtip"><b>PALLET</b> is an open source file exchange system. <br/><br/>
+                   <div class="ui-widget ui-state-highlight p-all-5 m-bottom-30">Think of a pallet as a portable platform for handling<br/>
+                   or moving materials and packages.</div>
+                   <a href="http://meso.net"><img src="/images/meso_web_scapes.png" width="176" height="18" class="png m-bottom-10" /></a><br/>
+                   PALLET is mainly developed by <a href="http://meso.net">MESO Web Scapes</a><br/> (Sascha Hanßen, Markus Seeger, Mathias Wollin).
+                   <br/><br/>
+                   <a href="" class="button-icon-text right"><span class="ui-icon ui-icon-comment"></span>feedback</a>
+                   <a href="" class="button-icon-text right"><span class="ui-icon ui-icon-home"></span>about</a></div>
+                   '

@@ -1,0 +1,19 @@
+de:
+  roles:
+    index:
+      system_roles: System Rollen
+      roles: Rollen
+      add_role: hinzufügen
+      title: Titel
+      users: Benutzer
+      confirm_destroy: Role '{{name}}' löschen?
+
+    new:
+      add_role: Rolle hinzufügen
+
+    edit:
+      edit_role: Rolle bearbeiten
+      associated_users: Verknüpfte Benutzer
+
+    form:
+      title: Titel

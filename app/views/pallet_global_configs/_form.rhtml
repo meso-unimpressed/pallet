@@ -1,0 +1,77 @@
+      <% page_title title = t('.system_preferences') %>
+
+      <%= custom_javascripts '/javascripts/unobtrusive/pallet_global_configs/edit.js' %>
+
+      <div class="container_16 clearfix">
+        <div class="grid_16 m-top-30 m-bottom-30">
+          <h2 class="m-bottom-15"><%= title %></h2>
+        </div>
+      </div>
+      <% tooltip_opt = tooltip_options(:show_delay => 300, :position => 'w-e', :hide_fixed => true) %>
+      <% form_for(@pallet_global_config) do |f| %>
+        <div class="container_16 clearfix">
+          <div class="grid_5 suffix_11">
+            <label for="pallet_global_config_root_path"><%= t '.root_path' %></label>
+            <%= f.text_field :root_path,
+                             :tooltip => t('.tip.root_path'),
+                             :tooltip_opt => tooltip_opt %>
+          </div>
+        </div>
+        <div class="container_16 clearfix">
+          <div class="grid_5 suffix_11">
+            <label for="pallet_global_config_domain"><%= t '.domain' %></label>
+            <% if @pallet_global_config.domain.blank? %>
+              <span onclick="$('#pallet_global_config_domain').attr('value', '<%= @domain_suggestion %>')">
+                Click here to use <%= @domain_suggestion %>
+              </span>
+            <% end %>
+            <%= f.text_field :domain,
+                             :tooltip => t('.tip.domain'),
+                             :tooltip_opt => tooltip_opt %>
+          </div>
+        </div>
+        <div class="container_16 clearfix">
+          <div class="grid_5 suffix_11">
+            <label for="pallet_global_config_email_robot_address"><%= t '.email_robot_address' %></label>
+            <%= f.text_field :email_robot_address,
+                             :tooltip => t('.tip.email_robot_address'),
+                             :tooltip_opt => tooltip_opt %>
+          </div>
+        </div>
+        <div class="container_16 clearfix">
+          <div class="grid_5 suffix_11">
+            <label for="pallet_global_config_max_upload_file_size"><%= t '.max_upload_file_size' %></label>
+            <%= f.text_field :max_upload_file_size,
+                             :tooltip => t('.tip.max_upload_file_size'),
+                             :tooltip_opt => tooltip_opt %>
+          </div>
+        </div>
+        <div class="container_16 clearfix">
+          <div class="grid_5 suffix_11">
+            <label for="pallet_global_config_theme"><%= t '.theme' %></label>
+            <%= f.select(:theme, PalletGlobalConfig.available_themes, {},
+                         :tooltip => t('.tip.theme'),
+                         :tooltip_opt => tooltip_opt) %>
+          </div>
+        </div>
+        <div class="container_16 m-top-30 clearfix">
+          <div class="grid_1 suffix_15">
+            <a href="" class="button-icon-text ui-state-default ui-corner-all left m-bottom-15" onclick="$('#pallet_global_config_submit').click();return false;"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span><%= t('save') -%>
+            </a>
+            <%= f.submit 'save', :class =>"hidden" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="container_16 clearfix">
+        <div class="grid_16 m-top-30">
+          <h2 class="m-bottom-15"><%= t '.role_association' %></h2>
+
+          <div id="role_association" class="content_box">
+            <%= render :partial => 'pallets/roles', :locals => { :controller_name => 'pallet_global_configs',
+                                                                 :current_roles => PalletGlobalConfig.auto_associated_role_ids,
+                                                                 :show_admin_roles => false,
+                                                                 :show_pallet_roles => false } %>
+          </div>
+        </div>
+      </div>

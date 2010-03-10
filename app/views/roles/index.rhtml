@@ -1,0 +1,53 @@
+<% page_title t('.system_roles') %>
+
+<%= custom_javascripts '/javascripts/unobtrusive/role/common.js' %>
+
+
+		<!-- working directory -->
+		<div class="ui-widget-content ui-corner-all noborder">
+			<div class="container_16 clearfix">
+				<div class="grid_16 m-top-30 m-bottom-30">
+					<h2 class="inline left"><%= t('.roles') %></h2>
+					<%=
+					ui_button_to(:icon => 'plus', 
+		                   :url => { 
+																 :action => 'new'
+                                  },
+                         :label => t('.add_role'),
+                         :class => 'left')
+            %>
+				</div>
+			</div>
+			<div class="container_16 clearfix">
+				<div class="sort_box">
+					<div class="grid_4"><strong><%= t('.title') %></strong></div>
+					<div class="grid_8"><strong><%= t('.users') %></strong></div>
+					<div class="grid_2"></div>
+				</div>
+			</div>
+      <% for role in @roles %>
+				<div class=" container_16 row_box">
+					<div class="grid_4"><%=h role.title %></div>
+					<div class="grid_8"><%=h role.users.map{ |u| u.login }.join(', ') %></div>
+					<div class="grid_2 right">
+						<%= 
+						ui_button_to(:icon => 'trash', 
+			                   :url => { :action => 'delete',
+			                             :id => role.id,
+			                            },
+			                   :confirm => t('.confirm_destroy', :name => role.title),
+			                   :class => 'right')
+						%>
+						<%=
+						ui_button_to(:icon => 'pencil', 
+					             	 :url => { :action => 'edit',
+					                       	 :id => role.id,
+		                            	},
+								        :class => 'right')
+			
+						%>
+					</div>
+				</div>
+     <% end %>
+		</div>
+    <!-- working directory -->

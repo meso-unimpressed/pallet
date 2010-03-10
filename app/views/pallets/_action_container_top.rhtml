@@ -1,0 +1,32 @@
+<% custom_javascripts '/javascripts/unobtrusive/pallets/_action_container_top.js' %>
+
+<script type="text/javascript">
+  $(function(){ init_action_container_top_handlers(<%= @pallet.id.to_s -%>, '<%= @sub_path -%>'); });
+</script>
+
+<!-- working directory action container top -->
+<div id="wd_action_top_container" class="container_16 ui-widget-content noborder">
+  <% unless @pallet.is_readonly and not (current_user_has_role? 'admin') %>
+    <a href="#" id="bt-upload" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.pallet_upload') %>" tooltip_opt="<%= tooltip_options(:position => 'nnw-s') %>">
+      <span class="ui-icon ui-icon-arrowthickstop-1-n"></span><%= t '.upload' %>
+    </a>
+    <a href="#" id="bt-new-directory" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.pallet_create_dir') %>">
+      <span class="ui-icon ui-icon-folder-open"></span><%= t '.new_directory' %>
+    </a>
+  <% end %>
+
+  <% if one_click_access_generation_allowed? and logged_in? %>
+    <a href="#" id="bt-share" class="ui-corner-all button-icon-text left"
+       tooltip="<div id='qtip_oca_loading'><%= t('tooltip.pallet_oca') -%><br /><br /><img src='/images/ajax-loader.gif' /></div>"
+       tooltip_opt="<%= tooltip_options(:hide_fixed => true, :show_delay => 0, :url => url_for(:controller => 'pallets', :action => 'oca_tooltip', :id => @pallet.id, :sub_path => @sub_path)) %>">
+      <span class="ui-icon ui-icon-key"></span><%= t '.one_click_access' %> {<span id="oca_count"><%= @pallet.one_click_access_list.size %></span>}
+    </a>
+  <% end %>
+
+  <div id="selection_operation_buttons" style="display:none">
+    <a href="javascript:delete_selected_files()" id="bt-selection_delete" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.delete_selection') %>" onclick="return confirm('<%= t('.confirm_delete_selection') %>');">
+      <span class="ui-icon ui-icon-trash"></span><%= t '.delete_selection' %> (<span id="delete_selection_count">0</span>)
+    </a>
+  </div>
+</div>
+<!-- /working directory action container top -->

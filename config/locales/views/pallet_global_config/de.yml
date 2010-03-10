@@ -1,0 +1,19 @@
+de:
+  pallet_global_configs:
+    form:
+      root_path: Paletten Wurzelverzeichnis 
+      domain: Server Adresse
+      domain_empty_showing_suggestion: Datenbankeintrag leer, zeige Vorschlag
+      email_robot_address: Email Roboter Absender-Adresse
+      max_upload_file_size: Maximale Dateigröße für Uploads (MB)
+      theme: Design Schema
+
+      system_preferences: System Einstellungen
+      role_association: Automatisch zugewiesene Rollen
+
+      tip:
+        root_path: '<h1>Alle Paletten werden unterhalb dieses Verzeichnisses erstellt.</h1>Kann ein absoluter oder relativer Pfad sein.<br />Benutzen Sie <b>niemals</b> das Rails öffentliche "public" Verzeichnis, sonst sind alle Datein zugänglich, ohne am System angemeldet zu sein!<br />Wenn der Pfad geändert wird, werden alle existierenden Paletten Daten zum neuen Ort bewegt.'
+        domain: '<h1>Wird für Links in Einladungs-Emails verwendet.</h1>In Mails ist ein Link mit der vollständigen Server Adresse enthalten, um den Empfängern direkten Zugriff auf Paletten per Klick auf einen One-Click-Access zu ermöglichen.<br />Format: www.beispiel.de (mit vorangestelltem http:// oder https://)'
+        email_robot_address: '<h1>Absender-Adresse für automatisch generierte EMails.</h1>Format: roboter@beispiel.de'
+        max_upload_file_size: '<h1>Beschränkt Dateigrößen auf den angegebenen Wert.</h1>Benutzer können mehrere Dateien hochladen, solange jede einzelne kleiner ist als der Maximalwert. Dieses Limit verhindert, dass Benutzer zu große Dateien hoch lädt, verhindert aber nicht, dass die Pallette selbst eine bestimmte größe überschreitet.'
+        theme: '<h1>System Design-Schema</h1>Ändert Farben, abgerundete Ecken, usw.'

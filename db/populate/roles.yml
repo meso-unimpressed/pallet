@@ -1,0 +1,17 @@
+system_admin:
+  id: 1
+  title: system_admin
+  description: "System administrators: have access to all interfaces"
+
+admin:
+  id: 2
+  parent_id: 1
+  title: admin
+  description: "Default users: can manage pallets and user/roles (except the admin role)"
+
+user:
+  id: 3
+  parent_id: 1
+  title: user
+  description: "Pallet user without admin interfaces: can use pallet (file/directory/oca) features"
+

@@ -1,0 +1,32 @@
+<%
+#
+# locals: [controller_name], [id], [show_admin_roles], [show_pallet_roles], current_roles
+#
+  controller_name ||= 'users'
+  id ||= nil
+  update_div_id ||= 'role_association'
+  show_admin_roles ||= false
+  show_pallet_roles ||= false
+%>
+      <%= render :partial => 'common/flash_dialog', :locals => { :flash => flash } if flash[:error] %>
+
+      <% for role in Role.find(:all, :order => 'title') -%>
+        <% unless (!show_admin_roles and (role.title == 'system_admin')) or
+                  (show_pallet_roles and role.title.split('_').first == 'plt' and role.title.split('_').last == 'user') %>
+            <% access = role_access(current_roles, role.id) -%>
+            <%= ui_button_to(:icon => access[:action_class],
+                             :url => { :controller => controller_name,
+                                       :action => access[:action],
+                                       :id => id,
+                                       :role_id => role,
+                                       :show_admin_roles => show_admin_roles,
+                                       :show_pallet_roles => show_pallet_roles },
+                             :remote  => true,
+                             :update  => update_div_id,
+                             :class   => "toggle-box left #{access[:box_class] }",
+                             :title   => role.title,
+                             :type 	  => 'toggle-box',
+                             :active  => access[:authorized])
+            %>
+        <% end -%>
+      <% end -%>

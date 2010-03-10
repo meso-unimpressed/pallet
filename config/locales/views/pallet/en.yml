@@ -1,0 +1,110 @@
+en:
+  new_pallet: 'New Pallet'
+  edit_pallet: 'Pallet Settings for &raquo;{{name}}&laquo;' 
+
+  pallets:
+    no_pallets_available: There are currently no pallets, please create some.
+    no_accessible_pallets: There are currently no pallets you are allowed to access.
+    delete_pallet_confirm: 'Are you sure you want to delete the pallet &raquo;{{name}}&laquo;?\nWarning: all files included in this pallets will be lost.'
+
+    action_container_top:
+      upload: Upload
+      new_directory: New Directory
+      one_click_access: One Click Access
+      delete_selection: Delete selection
+      confirm_delete_selection: Delete entire selection?
+
+    show:
+      upload_files: Upload new files
+      create_directory: Create a new directory
+      rename_element: Rename element
+      manage_oca: Add a new One Click Access
+      zip_collection: Name for zip file
+
+    file_table:
+      confirm_delete_file: 'Are you sure you want to delete this file?'
+      confirm_delete_directory: 'Are you sure you want to delete this directory and all files and subdirectories inside?'
+      confirm_clear_collection: Clear collection?
+      zip_collection: Zip
+      clear_collection: Clear
+      paste_collection: Paste
+      move_collection: Move      
+
+    uploadify:
+      cancel_all_uploads: 'Cancel All Uploads'
+
+    uploadify_js_code:
+      cancelled_exists: 'Cancelled / File exists'
+
+    form:
+      name: Name
+      description: Description
+      pallet_user_association: User Association
+      file_types: Allowed File Types
+      one_click_access_generation_by_users: One-Click-Access generation by users
+      is_readonly: Read only
+      creator_login: Creator login
+      creator_email: Creator email
+
+      tip:
+        name: '<h1>Name for the Pallet.</h1>Used to identify the Pallet in the selection menu or in notification Emails.<br/>'
+        description: 'Descriptive text for the Pallet.'
+        pallet_user_association: 'Users can automatically be associated to this Pallet.<br /> Enter User Names, EMail Addresses, if more than one separate by comma. Unknown EMail Adresses will be used for creating accounts, according users will receive Emails with login data.'
+        file_types: 'Restrict file types to specified extensions, files with other extensions will be rejected.<br />Examples:<ul><li>* = all</li><li>jpg = JPG Images only</li><li>doc xls = Word and EXCEL documents only</li></ul>'
+        one_click_access_generation_by_users: 'Check to permit normal users (non admin users) to create One-Click-Accesses.<br /> Admin users can always create One-Click-Accesses.'
+        is_readonly: 'Check to prohibit changes to files in this pallet. If checked users can only browse and download files of this pallet.<br /> Admin users can always upload, delete and rename files.'
+
+    one_click_access_form:
+      expiration_date: Expiration date
+      download: Restrict to selected file 
+      send_access_to: Send invitation to
+      email_notes: Preliminary notes for the Access-Email
+
+      tip:
+        download: This function is only availible if one single file is selected.<br/>The file will be sent instantly (open the browsers download dialog), when the One-Click-Access is opened. The user can not access any other files nor upload any files.
+        send_access_to: Multiple addresses can be entered separated by comma.<br/> An Email with this One-Click-Access will be sent to every address.
+        email_notes: Add some personal notes for the email receivers.<br/>The notes will appear at the top of the mail body.
+        language: Set the language of the user interface and the invitation email. 
+
+    one_click_access_list:
+      add_oca: Add
+      copy: Copy
+      delete: Delete
+      root_access: Root Access
+      restricted: Restricted to
+      no_oca: "There is no <i>One Click Access</i> token defined.<br/>
+
+              <h2 class='m-top-15'>What's a One Click Access Token?</h2>
+              One-Click-Access (OCA) allows access restricted by a single unique URL to a 
+              directory for a specified period of time, without generating user accounts.
+
+              <h2 class='m-top-15'>What does it look like?</h2>
+              <div class='m-bottom-10'>The token is a random generated string forming an unique URL:</div>
+
+              <div class='oca_token ui-state-highlight'>
+                <div class='clearfix'>
+                  <div class='oca_link left'>
+                    <a href=''>http://your.domain.tld/oca/vaho-buva-pizu-pihe</a>
+                  </div>
+                  <div class='right'>
+                    <a href='' class='button-icon-text ui-corner-all right'><span class='ui-icon ui-icon-cancel'/>Delete</a>
+                    <a class='button-icon-text ui-corner-all right' href=''><span class='ui-icon ui-icon-clipboard'/>Copy</a>
+                  </div>
+                </div>
+                <div class='oca_send_to'>you@your.domain.tld</div>
+                <hr class='ui-state-highlight'/>
+                <div>
+                   <b>Expires In </b>1 day
+                   <b> At </b>09/12/2009 23:59
+                </div>
+              </div>
+
+              <h2 class='m-top-15'>How does it work?</h2>
+              <ul class='square m-left-15'>
+                <li>Choose a directory and select <i>ADD</i> within the OCA overlay window.</li>
+                <li>Select an expiration date, invitation receivers and the invitation/interface language for the OCA.</li>
+                <li>You can also provide an optional note to the invitation message.</li>
+                <li>A invitation including the One-Click-Access link, the expiration date and your optional personal note will be send to every specified receiver.</li>
+                <li>The receivers can use the unique link to get instantly access to the system.</li>
+              </ul>
+              "

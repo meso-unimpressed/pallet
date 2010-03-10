@@ -1,0 +1,4 @@
+/* TwinHelix png-fix */
+/* http://www.twinhelix.com/css/iepngfix/ */
+/* CAUTION: DO NOT USE THE JQUERY PNGFIX!!! */
+.png {behavior:url("/htc/iepngfix.htc");}

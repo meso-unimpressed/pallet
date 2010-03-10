@@ -1,0 +1,79 @@
+<% custom_javascripts ['jquery-ui/ui/i18n/jquery.ui.datepicker-de.js',
+                       'unobtrusive/pallets/_file_table.js',
+                       'unobtrusive/pallets/_one_click_access_form.js'] %>
+
+<% show_edit_links = !(@pallet.is_readonly and not (current_user_has_role? 'admin')) %>
+<% main_grid_width = show_edit_links ? 9 : 10 %>
+
+<!-- file list headers -->
+<div class="container_16 sort_box">
+  <div class="grid_1"><%= link_for_order_by('extension') %></div>
+  <div class="grid_<%= main_grid_width %>"><%= link_for_order_by('filename') %></div>
+  <div class="grid_2"><%= link_for_order_by('size', :class => 'ui-corner-all button right' ) %></div>
+  <div class="grid_3"><%= link_for_order_by('timestamp', :class => 'ui-corner-all button right') %></div>
+</div>
+
+<!-- top file list entry linking to upper directory -->
+<% if @sub_path %>
+  <div id="d_mv_up" class="container_16 row_box">
+    <div class="grid_1">
+      <%= link_to(image_tag('bullet_arrow_up.png', :alt => '', :class => 'png'),
+                  { :action => 'show', :id => @pallet.id, :sub_path => parent_path(@sub_path) },
+                    :tooltip => 'Move to parent directory', :tooltip_opt => tooltip_options(:position => 'nnw-s')) %>
+    </div>
+    <div class="grid_<%= main_grid_width %>">
+      <%= link_to('..&nbsp;&nbsp;', { :action => 'show', :id => @pallet.id, :sub_path => parent_path(@sub_path) },
+                  :tooltip => 'Move to parent directory') %>
+    </div>
+  </div>
+<% end %>
+
+<!-- file list entries -->
+<% @dir_list.each_with_index do |element, row_number| %>
+  <% row_id = "d#{row_number}" %>
+  
+  <div id="<%= row_id %>" class="container_16 drag_box no_select">
+    <div class="grid_1"><%= link_for(element, (symbol_for element)) %></div>
+    <div class="grid_<%= main_grid_width %>"><%= link_for element %></div>
+    <div class="grid_2 t_right"><%= get_size_of element %>&nbsp;</div>
+    <div class="grid_3 t_right"><%= get_time_of element %>&nbsp;</div>
+    <% if show_edit_links %>
+      <div class="grid_1">
+          <%= deletion_link_for element %>
+          <%= rename_link_for element %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<% hide_if_ie6 do %>
+  <% if !(@pallet.is_readonly and not (current_user_has_role? 'admin')) %>
+  <!-- drop stack -->
+  <div id="drop_stack">
+    <div id="drop_stack_area" class="ui-droppable png"><%= render 'collection' %></div>
+    <div id="drop_stack_actions">
+      <a href="#" id="bt-collection_paste" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.paste_collection') %>">
+        <span class="ui-icon ui-icon-copy"></span><%= t '.paste_collection' %>
+      </a>
+      <a href="#" id="bt-collection_move" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.move_collection') %>">
+        <span class="ui-icon ui-icon-arrowthick-1-e"></span><%= t '.move_collection' %>
+      </a>
+      <a href="#" id="bt-collection_zip" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.zip_collection') %>">
+        <span class="ui-icon ui-icon-suitcase"></span><%= t '.zip_collection' %>
+      </a>
+      <a href="#" id="bt-collection_clear" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.clear_collection') %>">
+        <span class="ui-icon ui-icon-cancel"></span><%= t '.clear_collection' %>
+      </a>
+    </div>
+    <div id="drop_stack_listel" class="ui-border-bottom clearfix png"><span class="ui-icon ui-icon-star left"></span>{<span id="drop_stack_size"><%= @collection_elements.empty? ?  '0' : @collection_elements.length  -%></span>}
+    </div>
+    <div class="drop_stack_listel_bordure png clearfix"></div>
+  </div>
+  <script type="text/javascript">
+    set_stack_action_status('<%= @collection_elements.empty? ? 'disable' : 'enable' %>');
+  </script>
+  <!-- /drop stack -->
+  <% end %>
+<% end %>
+

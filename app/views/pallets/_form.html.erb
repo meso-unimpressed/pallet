@@ -1,0 +1,88 @@
+<% page_title title = (@pallet.new_record? ? t('new_pallet') : t('edit_pallet', :name => @pallet.name)) %>
+<% tooltip_opt = tooltip_options(:show_delay => 300, :position => 'w-e', :hide_fixed => true) %>
+
+  <div class="container_16 clearfix">
+    <div class="grid_16 m-top-30 m-bottom-30">
+      <h2 class="m-bottom-15"><%= title %></h2>
+      <%= error_messages_for :pallet %>
+    </div>
+  </div>
+
+  <% form_for(@pallet) do |f| %>
+    <%= focus_input_field_onload(f, :name) %>
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <label for="pallet_name"><%= t '.name' %> *</label>
+        <%= f.text_field :name, :tooltip => t('.tip.name'),
+                                :tooltip_opt => tooltip_opt %>
+      </div>
+    </div>
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <label for="pallet_description"><%= t '.description' %></label>
+        <%= f.text_area :description, :size => '23x2',
+                        :tooltip => t('.tip.description'),
+                        :tooltip_opt => tooltip_opt,
+                        :class => 'h-50' %>
+      </div>
+    </div>
+    <% unless controller.action_name == 'edit' %>
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <label for="pallet_user_association"><%= t '.pallet_user_association' %></label>
+        <%= text_field_with_auto_complete 'pallet_user_association', params[:pallet_user_association],
+                                          { :size => 30,
+                                            :tooltip => t('.tip.pallet_user_association'),
+                                            :tooltip_opt => tooltip_opt },
+                                          { :auto_complete_url => '/pallets/auto_complete_for_user_association' } %>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="container_16 clearfix">
+      <div class="grid_5 suffix_11">
+        <label for="pallet_file_types"><%= t '.file_types' %></label>
+        <%= f.text_field :file_types, :tooltip => t('.tip.file_types'),
+                                      :tooltip_opt => tooltip_opt %>
+      </div>
+    </div>
+
+    <div class="container_16 clearfix m-bottom-15">
+      <% unless @pallet.new_record? %>
+        <div class="grid_2">
+          <label for="creator_login"><%= t('.creator_login') %></label>
+          <% pallet_creator_login = @pallet.user.login rescue 'unknown' %>
+          <% pallet_creator_email = @pallet.user.email rescue 'unknown' %>
+          <%= text_field_tag :creator_login, pallet_creator_login, :readonly => true %>
+        </div>
+        <div class="grid_3 suffix_11">
+          <label for="creator_email"><%= t('.creator_email') %></label>
+          <%= text_field_tag :creator_email, pallet_creator_email, :readonly => true %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="container_16 clearfix">
+      <div class="grid_1">
+        <%= f.check_box :one_click_access_generation_by_users,
+                        :tooltip => t('.tip.one_click_access_generation_by_users'),
+                        :tooltip_opt => tooltip_opt %>
+      </div>
+      <div class="grid_15"><label for="pallet_one_click_access_generation_by_users"><%= t '.one_click_access_generation_by_users' %></label></div>
+    </div>
+    <div class="container_16 clearfix">
+      <div class="grid_1 left">
+       <%= f.check_box :is_readonly,
+                        :tooltip => t('.tip.is_readonly'),
+                        :tooltip_opt => tooltip_opt %>
+      </div>
+      <div class="grid_15"><label for="pallet_is_readonly"><%= t '.is_readonly' %></label></div>
+    </div>
+    <div class="container_16 m-top-30 clearfix">
+      <div class="grid_1 suffix_15">
+        <a href="" class="button-icon-text ui-state-default ui-corner-all left m-bottom-15" onclick="$('#pallet_submit').click();return false;"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span><%= t('save') -%></a>
+        <%= f.submit 'save', :class =>"hidden" %>       
+      </div>
+    </div>
+  <% end %>
+

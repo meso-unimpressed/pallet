@@ -1,0 +1,26 @@
+= Pallet Theming
+
+The Pallet Theming is based on jQuery UI Themes (1.7.2).
+
+Themes can easily be changed, extended or added.
+
+All themes in the public/theme directory will be offered in the System 
+Preferences interface in Pallet.
+
+== How to create custom themes
+
+1. Visit the jQuery Themeroller website and download a theme
+
+  http://jqueryui.com/themeroller
+
+2. Copy an existing theme directory
+  
+3. Overwrite in your new theme directory the directory "images" and the file 
+   "jquery-ui-1.7.2.custom.css" with according directory and file from
+
+  [jquery-ui-1.7.2.custom.zip]/development-bundle/themes/[theme name]
+
+4. Edit the theme.info file.
+  
+5. The next time you open the System Preferences interface in Pallet, the new 
+   theme will be available for selection.

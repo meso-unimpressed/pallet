@@ -1,0 +1,94 @@
+de:
+  flash:
+    # application controller
+    login_required: 'Sie müssen am System angemeldet sein, um auf diese Seite zuzugreifen.'
+    login_required_with_role: 'Sie müssen als {{role}} am System angemeldet sein, um auf diese Seite zuzugreifen.'
+
+    # pallet_global_configs controller
+    system_config_updated_successfully: 'System Einstellungen erfolgreich aktualisiert.'
+
+    # pallets controller
+    no_accessible_pallet: 'Es existiert zurzeit keine Palette auf die Sie Zugriff haben.'
+    pallet_created_successfully: 'Pallet erfolgreich erstellt.<br/>'
+    pallet_updated_successfully: 'Pallet erfolgreich aktualisiert.'
+    pallet_deleted_successfully: 'Pallet erfolgreich gelöscht.'
+    invalid_cannot_open: 'Ungültig, kann nicht geöffnet werden.'
+    oca_token_expired: 'Schlüssel abgelaufen!<br/><br/>Bitte kontaktieren Sie den Administrator, um einen neuen Schlüssel zu erhalten.'
+    oca_token_unknown: 'Ungültiger Schlüssel.<br/><br/>Sie haben die URL falsch eingegeben oder der Schlüssel ist abgelaufen.'
+    pallet_no_write_access: 'Sie haben keinen Schreibzugriff auf diese Palette!'
+
+    # roles controller
+    role_created: 'Rolle wurde erfolgreich erstellt.'
+    role_updated: 'Rolle wurde erfolgreich aktualisiert.'
+    role_deleted: 'Rolle wurde erfolgreich gelöscht.'
+
+    # user_sessions controller
+    login_successful: 'Anmeldung erfolgreich.'
+    brute_force_protected: 'Der Account wurde wegen eines Hackversuchs gesperrt, bitte versuchen Sie es in 2 Stunden erneut.'
+    wrong_login_data: 'Falscher Benutzername oder Passwort.'
+    logout_successful: 'Sie wurden vom System abgemeldet.'
+
+    # users controller
+    user_created: 'Registrierung erfolgreich.'
+    user_updated: 'Account erfolgreich aktualisiert.'
+    user_deleted: 'Benutzer &raquo;{{login}}&laquo; erfolgreich gelöscht.'
+
+    # authenticated_system controller
+    # login_successful -> see above
+
+    # file_list_operations lib
+    file: 'Datei'
+    files: 'Dateien'
+    directory: 'Verzeichnis'
+    directories: 'Verzeichnisse'
+    element: 'Element'
+    elements: 'Elements'
+    content_deleted: '{{content}} gelöscht.<br/>'
+    could_not_be_deleted: 'Folgende Dateien wurden nicht gefunden und konnten nicht gelöscht werden:<br/>'
+    added_to_collection: '{{content}} zur Zwischenablage hinzugefügt.'
+    already_collected: '{{content}} nicht zur Zwischenablage hinzugefügt - bereits abgelegt.<br/>'
+    covered_by_parent: '{{content}} von Zwischenablage entfernt - von übergeordnetem Verzeichnis abgedeckt.<br/>'
+    removed_from_collection: '{{content}} von Zwischenablage entfernt.'
+    not_found_changed_during_operation: 'Folgende Dateien oder Verzeichnisse wurden nicht gefunden und scheinen gelöscht oder umbenannt zu sein:<br/>'
+    exists_on_destination: '{{element}} existiert am Zielort und wurde ignoriert.<br/>'
+    copy_to_itself: 'Versuch &raquo;{{element}}&laquo; auf sich selbst zu kopieren. Das funktioniert nicht ... wurde ignoriert.<br/>'
+    moved_successful: '{{count}} Dateien und/oder Verzeichnisse umbewegt.'
+    copied_successful: '{{count}} Dateien und/oder Verzeichnisse kopiert.'
+    element_not_found_skipped: '{{element}} nicht gefunden und übersprungen.<br/>'
+    zip_file_created: 'ZIP Datei erstellt.'
+    collection_cleared: 'Zwischenablage geleert.'
+    collision: 'Kollision'
+    collisions: 'Kollisionen'
+    file_name_collisions: '{{count}} Dateinames-{{collisions}} sind aufgetreten:<br/>'
+    renamed_from_to: '{{from}} wurde zu {{to}} umbenannt<br/>'
+    element_not_renamed: '{{name}} wurde nicht umbenannt<br/>'
+
+
+    # one_click_access lib
+    oca_created: 'One Click Access erzeugt.'
+    oca_deleted: 'One Click Access gelöscht.'
+    oca_mailer_exception: 'Die One Click Access-Email konnte nicht versendet werden: '
+    
+    # user_role_management lib
+    cant_remove_standard_role: 'Der standard Rollennname kann nicht von einer Palette entfernt werden!'
+    users_found_and_associated: '{{users}} gefunden und verknüpft.<br/>'
+    user_ignored: '&raquo;{{name}}&laquo; ist kein bestehender Benutzer und keine Email-Adresse und wurde ignoriert.'
+    users_created_and_associated: '&raquo;{{users}}&laquo; anhand gegebener Email-Adresse erstellt und verknüpft.'
+
+    # file_directory_handling lib
+    directory_created: 'Verzeichnis &raquo;{{name}}&laquo; erstellt.'
+    directory_exists: 'Verzeichnis &raquo;{{name}}&laquo; existiert bereits.'
+    wrong_filetype: 'Falscher Dateityp, die Datei wurde nicht gespeichert.'
+    no_file_selected: 'Es wurde keine Datei ausgewählt.'
+    size_limit_exceeded: 'Die Datei überschreitet das Größenlimit.'
+    upload_successful: 'Datei erfolgreich hochgeladen.'
+    destination_exists: 'Einen Datei mit diesem Namen existiert bereits.'
+    content_deleted: '{{content}} gelöscht.'
+    content_renamed: 'Umbenennung erfolgreich.'
+    content_rename_failed: 'Umbenennung fehlgeschlagen.'
+    content_rename_failed_wrong_ext: 'Umbenennung fehlgeschlagen, falsche Extension.'
+    encrypt_successful: 'Die Datei wurde verschlüsselt.<br />Das Original wurde entfernt.'
+    encrypt_failed: 'Die Datei wurde nicht verschlüsselt!'
+    remember_password: 'Vergessen Sie Ihr Passwort nicht!'
+    decrypt_successful: 'Die Datei wurde entschlüsselt.<br />Die verschlüsselte Datei wurde entfernt.'
+    decrypt_failed: 'Die Datei wurde nicht entschlüsselt!<br />Ist das Passwort falsch?'

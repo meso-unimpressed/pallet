@@ -1,0 +1,96 @@
+en:
+  flash:
+    # application controller
+    login_required: 'You must be logged in to access this page.'
+    login_required_with_role: 'You must be logged in as {{role}} to access this page.'
+
+    # pallet_global_configs controller
+    system_config_updated_successfully: 'System preferences was successfully updated.'
+
+    # pallets controller
+    no_accessible_pallet: 'There is currently no pallet you are allowed to access.'
+    pallet_created_successfully: 'Pallet was successfully created.<br/>'
+    pallet_updated_successfully: 'Pallet was successfully updated.'
+    pallet_deleted_successfully: 'Pallet was successfully deleted.'
+    invalid_cannot_open: 'Invalid, cannot open.'
+    oca_token_expired: 'Token expired!<br/><br/>Please contact the administrator to get a new token.'
+    oca_token_unknown: 'Unknown token.<br/><br/>You mistyped the URL or the token has expired.'
+    pallet_no_write_access: 'You do not have write access to this pallet!'
+
+    # roles controller
+    role_created: 'Role was successfully created.'
+    role_updated: 'Role was successfully updated.'
+    role_deleted: 'Role was successfully deleted.'
+
+    # user_sessions controller
+    login_successful: 'Successfully logged in.'
+    brute_force_protected: 'Account is locked due to brute force protection. Please try again in 2 hours.'
+    wrong_login_data: 'Wrong username or password.'
+    logout_successful: 'You have been logged out.'
+
+    # users controller
+    user_created: 'Registration successful.'
+    user_updated: 'Account updated successfully.'
+    user_deleted: 'Deleted user &raquo;{{login}}&laquo;.'
+
+    # authenticated_system controller
+    # login_successful -> see above
+
+    # file_list_operations lib
+    file: 'file'
+    files: 'files'
+    directory: 'directory'
+    directories: 'directories'
+    element: 'element'
+    elements: 'elements'
+    content_deleted: '{{content}} deleted<br/>'
+    could_not_be_deleted: "Following files were not found and couldn't be deleted:<br/>"
+    added_to_collection: '{{content}} added_to_collection'
+    already_collected: '{{content}} not added to collection - already collected<br/>'
+    covered_by_parent: '{{content}} removed from collection - covered by parent directory<br/>'
+    removed_from_collection: '{{content}} removed form collection'
+    not_found_changed_during_operation: 'Following files or directories were not found and seem to be deleted or renamed:<br/>'
+    exists_on_destination: '{{element}} exists on destination and was skipped<br/>'
+    copy_to_itself: 'Tried to copy &raquo;{{element}}&laquo; to itself. That could hardly be done. Skipped.<br/>'
+    moved_successful: '{{count}} files and/or directories moved.'
+    copied_successful: '{{count}} files and/or directories pasted.'
+    element_not_found_skipped: '{{element}} was not found and skipped.<br/>'
+    zip_file_created: 'ZIP file created'
+    collection_cleared: 'Collection cleared'
+    collision: 'collision'
+    collisions: 'collisions'
+    file_name_collisions: '{{count}} file name {{collisions}} occured:<br/>'
+    renamed_from_to: '{{from}} was renamed to {{to}}<br/>'
+    element_not_renamed: '{{name}} was not renamed<br/>'
+    
+
+    # one_click_access lib
+    oca_created: 'One Click Access created.'
+    oca_deleted: 'One Click Access deleted.'
+    oca_mailer_exception: 'Sending the One Click Access email failed: '
+
+    # user_role_management lib
+    cant_remove_standard_role: 'The standard role cannot be removed from a Pallet!'
+    users_found_and_associated: '{{users}} found and associated.<br/>'
+    user_ignored: '&raquo;{{name}}&laquo; is no exisiting user and not an email address and was ignored.'
+    users_created_and_associated: '&raquo;{{users}}&laquo; created by given email address and associated.'
+    
+    # file_directory_handling lib
+    directory_created: 'Directory &raquo;{{name}}&laquo; created.'
+    directory_exists: 'Directory &raquo;{{name}}&laquo; exists.'
+    wrong_filetype: 'Wrong file type, uploaded file rejected.'
+    no_file_selected: 'No file has been selected.'
+    size_limit_exceeded: 'File exceeded size limit'
+    upload_successful: 'File successfully uploaded'
+    destination_exists: 'Destination exists'
+    content_deleted: '{{content}} deleted'
+    content_renamed: 'Name successfully changed.'
+    content_rename_failed: 'Name could not be changed.'
+    content_rename_failed_wrong_ext: 'Name could not be changed, wrong extension.'
+    encrypt_successful: 'File has been encrypted.<br />Original file has been removed.'
+    encrypt_failed: 'File has not been encrypted!'
+    remember_password: 'Do not forget your password!'
+    decrypt_successful: 'File was decrypted.<br />Encrypted file has been removed.'
+    decrypt_failed: 'File has not been decrypted!<br />Wrong password?'
+    
+    

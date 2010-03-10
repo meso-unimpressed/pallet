@@ -1,0 +1,15 @@
+<% if valid_file_collection? %>
+  <h2>Collection</h2>
+
+  <% for type in ['directories', 'files'] %>
+    <% session_list = session[@pallet.collection][type.to_sym] %>
+    <% unless session_list.empty? %>
+      <b><%= type.camelize %></b>  
+      <ul>
+        <% for element in session_list %>
+        <li><%= element %> <%= collection_remove_link_for(element, type) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

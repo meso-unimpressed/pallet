@@ -1,0 +1,5 @@
+<% if @collection_elements %>
+  <% @collection_elements.each do |element| %>
+    <div class="drag_helper_item"><%= symbol_for element %> <%= element[:path] %></div>
+  <% end %>
+<% end %>

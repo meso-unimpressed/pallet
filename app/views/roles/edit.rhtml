@@ -1,0 +1,26 @@
+<% page_title title = t('.edit_role') %>
+
+<%= custom_javascripts '/javascripts/unobtrusive/role/common.js' %>
+
+<!-- content container -->
+<div id="wd_container" class="ui-widget-content ui-corner-all noborder">
+  <div class="container_16 clearfix">
+    <div class="grid_16 m-top-30">
+      <h2 class="m-bottom-15"><%= title %></h2>
+    </div>
+  </div>
+
+  <%= render :partial => 'form' %>
+    
+  <div class="container_16 clearfix">
+   <div class="grid_16 m-top-30">
+      <h2 class="m-bottom-15"><%= t('.associated_users') %></h2>
+      <div id="user_association" class="content_box">
+        <%= render :partial => 'pallets/users', :locals => { :current_users => @role.users.map{|r| r.id},
+                                                             :id => @role.id,
+                                                             :scope => 'roles' } %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / content container -->

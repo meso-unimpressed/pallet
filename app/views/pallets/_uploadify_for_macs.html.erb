@@ -1,0 +1,44 @@
+
+  <%= javascript_include_tag 'swfobject.js', 'uploadify/jquery.uploadify.v2.1.0.js' %>
+
+  <%= render :partial => 'uploadify_js_code',
+             :locals => { :size_limit => Settings.mac_uploadify_size_limit.megabytes } %>
+
+
+<div id="upload_box_surrounding_container">
+  <div class="upload_box">
+    <h1>Single file upload</h1>
+    <h2>Up to <%= PalletGlobalConfig.max_upload_file_size_byte/1024/1024 %> MB per file</h2>
+    <!-- file upload html -->
+    <div>
+      <form action="/upload?non_swf_upload=1" enctype="multipart/form-data" id="file_upload" method="post">
+        <input id="upload_authenticity_token" name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <input id="upload_pallet_id" type="hidden" name="id" value="<%= @pallet.id %>" />
+        <input id="non_swf_upload_sub_path" type="hidden" name="sub_path" value="<%= @sub_path %>" />
+        <input type="file" name="Filedata" class="file_select" />
+        <br />
+        <input id="non_swf_submit_button" type="submit" class="ui-button-text ui-state-default ui-corner-all" onclick="$('#loader_bar').show();" value="<%= t('submit') %>" />
+        <br />
+        <%= image_tag 'ajax-loader-bar.gif', :id => 'loader_bar', :style => 'display:none' %>
+      </form>
+    </div>
+  </div>
+
+  <div class="upload_box left_space">
+    <h1>Multi file upload</h1>
+    <h2>Up to <%= Settings.mac_uploadify_size_limit %> MB per file</h2>
+    <!-- will be replaced by uploadify flash upload button -->
+    <div id="uploadify"></div>
+    <p><%= t('tooltip.uploadify') %></p>
+  </div>
+</div>
+
+<!-- jQuery Uploadify cancel button and queue -->
+<a id="uploadify_clear_queue_button" class="button-icon-text ui-corner-all ui-state-default" href="#" onclick="$('#uploadify').data('manual_cancel', true); $('#uploadify').uploadifyClearQueue(); return false;">
+  <span class="ui-icon ui-icon-cancel"></span><%= t('pallets.uploadify.cancel_all_uploads') %>
+</a>
+<div id="fileQueue" class="m-top-15"></div>
+
+<script>
+  init_hover_states();
+</script>

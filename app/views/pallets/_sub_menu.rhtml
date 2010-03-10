@@ -1,0 +1,16 @@
+<ul>
+  <% if (accessible_pallets.size > 0) %>
+    <% accessible_pallets.each do |pallet| %>
+        <li class="nav_item">
+          <%= pallet_navigation_link(:label => pallet.name,
+                                     :url => pallet_url(pallet),
+                                     :title => (pallet.user ? '[' + pallet.user.login + '] ' : '') + pallet.description,
+                                     :active => (@pallet == pallet)) %>
+        </li>
+    <% end %>
+  <% else %>
+    <li class="nav_item">
+      <%= t(current_user_has_role?('admin') ? 'pallets.no_pallets_available' : 'pallets.no_accessible_pallets') %>
+    </li>
+  <% end %>
+</ul>

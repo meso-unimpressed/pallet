@@ -1,0 +1,15 @@
+
+<ul>
+  <li class="nav_item">
+    <%= link_to(t('navi.button.options_config'), '#', :onclick => "document.location=\"/pallets/edit/#{@pallet.id}\"") %>
+  </li>
+  <li class="nav_item">
+    <%= link_to(t('navi.button.options_users'), '#', :id => 'bt-users', :onclick => "$('#user_association_dialog').dialog('open');") %>
+  </li>
+  <li class="nav_item">
+    <%= link_to(t('navi.button.options_roles'), '#', :id => 'bt-roles', :onclick => "$('#role_association_dialog').dialog('open');") %>
+  </li>
+  <li class="nav_item">
+    <%= link_to(t('navi.button.options_delete'), '#', :onclick => "modal_confirm(\"#{t('pallets.delete_pallet_confirm', :name => @pallet.name)}\", \"/pallets/destroy/#{@pallet.id}\");") %>
+  </li>
+</ul>

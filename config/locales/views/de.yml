@@ -1,0 +1,19 @@
+de:
+  manage_users_for_pallet: Benutzer verwalten für die Paletten-Rolle &raquo;{{name}}&laquo;
+  manage_roles_for_pallet: Rollen verwalten für Palette &raquo;{{name}}&laquo;
+
+  navi:
+    button:
+      options: Optionen
+      options_config: Konfiguration
+      options_users: Benutzer
+      options_roles: Rollen
+      options_delete: Löschen 
+      pallet_new: Neue Palette
+      system: System
+      system_prefs: Einstellungen
+      system_users: Benutzer
+      system_roles: Rollen
+      system_history: Login Historie
+      my_account: Mein Account
+      logout: Abmelden

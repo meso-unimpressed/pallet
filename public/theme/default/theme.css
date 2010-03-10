@@ -1,0 +1,184 @@
+/*
+	PALLET - Exchange your files
+	Learn more ~ http://pallet.meso.net
+
+	Licensed under MIT License
+*/
+
+@import url("jquery-ui/jquery-ui-1.7.2.custom.css");
+
+/* =GLOBALS
+--------------------------------------------------------------------------------*/
+body {
+  color: #afafaf;
+  font: normal 12px Arial, sans-serif;
+  background: #292929 url(./images/body_bkg.jpg) repeat top left fixed;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+input,
+button,
+textarea {
+  color: #888888;
+  border: 1px solid #303030;
+  background: #262626;
+}
+label {
+  color: #8f8f8f;
+}
+
+/* =JQUERY UI HELPER
+--------------------------------------------------------------------------------*/
+.button,
+.button-icon-text,
+.button-text-icon {
+  font: normal 10px Arial, sans-serif;
+}
+
+/* =PALLET NAV
+--------------------------------------------------------------------------------*/
+
+#pallet_nav {
+  background: url(./images/head_bkg.png) repeat-x 0 0;
+}
+
+#pallet_slat_nav {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 100;
+  background: url(../../images/pallet_slat_small.png) no-repeat 0 0;
+}
+
+/* =PALLET INFO
+--------------------------------------------------------------------------------*/
+#pallet_info {
+  background: url(./images/bkg_black_64.png) repeat 0 0;
+}
+
+.pallet_info_bottom {
+  height: 12px;
+  background: url(./images/bordure_32_bottom.png) repeat-x 0 0;
+}
+
+#logo {
+  position: relative;
+  width: 154px;
+  height: 58px;
+  margin-top: 20px;
+  background-image: url(./images/logo.png);
+}
+
+/* =DROP STACK
+--------------------------------------------------------------------------------*/
+#drop_stack_area {
+  background: #000000;
+}
+#drop_stack_actions {
+  background: #000000;
+}
+#drop_stack_listel {
+  background: #000000;
+}
+
+.drop_stack_listel_bordure {
+  height: 7px;
+  background: url(./images/bordure_bottom.png) repeat-x 0 0;
+}
+
+/* =CONTAINERS
+--------------------------------------------------------------------------------*/
+.wd_frame {
+  background: #000000;
+  -moz-box-shadow: 0px 0px 18px #000000;
+  -webkit-box-shadow: 0px 0px 18px #000000;
+}
+
+.bordure_top {
+  margin-top: -8px;
+  height: 7px;
+  background: url(./images/bordure_top.png) repeat-x left top;
+  z-index: 10;
+  padding: 0 10px;
+}
+
+/* =LOGIN
+--------------------------------------------------------------------------------*/
+.login_msg {
+  color: #0f0f0f;
+}
+
+/* =MAIN MENU
+--------------------------------------------------------------------------------*/
+.fg-menu-container {
+  -moz-box-shadow: 0px 2px 5px #000000;
+  -webkit-box-shadow: 0px 2px 5px #000000;
+  z-index: 100;
+}
+
+.fg-menu li.nav_item {
+  margin-top: -1px;
+  border-top: 1px solid #262626;
+  border-bottom: 1px solid #262626;
+}
+
+/* =Working Directory (WD)
+--------------------------------------------------------------------------------*/
+.drag_box,
+.row_box {
+  margin-top: -1px;
+  border-top: 1px solid #262626;
+  border-bottom: 1px solid #262626;
+}
+
+.drag_box:hover {
+  background: #1c1c1c;
+}
+
+.file_table .active,
+.file_table .active:hover {
+  background: #191919;
+}
+
+/* =UPLOADIFY
+-------------------------------------- ------------------------------------------*/
+.uploadifyProgress {
+  background-color: #1f1f1f;
+}
+
+.uploadifyProgressBar {
+  background-color: #00ffff;
+}
+
+/* =qTip
+-------------------------------------- ------------------------------------------*/
+.qtip-wrapper {
+  -moz-box-shadow: 0px 2px 5px #000000;
+  -webkit-box-shadow: 0px 2px 5px #000000;
+}
+
+.tooltip {
+  border-color: #000000;
+  border-width: 8px;
+  min-width: 40px;
+  max-width: 600px;
+}
+
+.tooltip-radius {
+  /* This is the border radius for rounded corners not the border width.
+     Use 0 to not use rounded borders. */
+  border-width: 0px;
+}
+
+
+/* = IE 6 *HACKS
+--------------------------------------------------------------------------------*/
+* html .button,
+* html .button-icon-text,
+* html .button-text-icon {
+  border: 1px solid #1f1f1f;
+}

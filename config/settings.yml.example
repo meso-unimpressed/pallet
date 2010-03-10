@@ -1,0 +1,25 @@
+defaults: &defaults
+  # use x_sendfile to stream files with lower memory consumption (requires Lighttpd/Apache2 and mod_xsendfile)
+  # refer to http://api.rubyonrails.org/classes/ActionController/Streaming.html#M000421 for further information
+  x_sendfile: false
+  # use x_redirect to	stream files with lower	memory consumption (nginx). Needs additional nginx configuration
+  # http://ramblingsonrails.com/how-to-protect-downloads-but-still-have-nginx-serve-the-files
+  x_accel_redirect: false
+  
+  # mac loads a file entirly into the memory before sending it with uploadify. therefor a restriction
+  # to a specific size should be set, to prevent the clients browser to crash
+  mac_uploadify_size_limit: 200 # MB
+
+development:
+  <<: *defaults
+
+
+ 
+test:
+  <<: *defaults
+
+
+
+production:
+  <<: *defaults
+  #x_accel_redirect: true

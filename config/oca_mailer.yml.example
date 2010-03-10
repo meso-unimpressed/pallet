@@ -1,0 +1,9 @@
+
+production:
+  :address: "mysmtpserver"
+  :domain: "mydomain"
+  :port: 25
+  :enable_starttls_auto: true
+  :authentication: :plain
+  :user_name: "myuser"
+  :password: "mypass"

@@ -1,0 +1,26 @@
+en:
+  users:
+    index:
+      system_users: System Users
+      users: Users
+      add_user: Add User
+      login_name: Login Name
+      accessible_pallet: Accessible Pallets
+      confirm_destroy: Delete user '{{name}}'?
+
+    new:
+      add_user: Add User
+
+    edit:
+      edit_user: Edit User
+      edit_account: Edit Account
+      associated_roles: Associated Roles
+
+    form:
+      login: Login
+      email: Email
+      name: Name
+      language: Language
+      password: Password
+      password_confirmation: Password Confirmation
+      ldap_change_password: Please contact your LDAP Administrator to change your password.

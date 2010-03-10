@@ -1,0 +1,40 @@
+DefaultOrder
+============
+
+Author : Antonin AMAND
+Email : aamand@gwikzone.org
+License : Ruby MIT
+
+The default_order plugin provides a 'order_by' method to
+be called in your models.
+
+ex : 
+
+class Contact < ActiveRecord::Base
+  order_by :fields => ['first_name', 'last_name'], :mode => :desc
+
+end
+
+# mode can be either a Symbol or a String
+order_by :fields => ['first_name', 'last_name'], :mode => :desc
+order_by :fields => ['first_name', 'last_name'], :mode => "DESC"
+
+mode default to ASC
+
+For compatibility with previous version you can use the string form
+but it is not recommended
+
+order_by "contacts.first_name, contacts.last_name DESC"
+
+the order_by method will append the given argument to 
+:order Hash key of ActiveRecord::Base.find method
+IF IT HAS NOT BEEN PROVIDED.
+
+ex : 
+
+Contact.find(:all, :conditions => "last_name LIKE '%toto%'")
+# will act as if you had written this
+
+Contact.find(:all, :order => "last_name, first_name",
+	:conditions => "last_name LIKE '%toto%'")
+# but if you provide :order it will override the default order

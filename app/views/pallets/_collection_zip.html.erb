@@ -1,0 +1,7 @@
+      <% form_tag '#', :id => 'form_collection_zip', :onsubmit => 'zip_selected_files(); return false;' do -%>
+        <%= text_field_tag('zip_filename', {}, :onchange => "$('#zip_filename').attr('value', permalink_format($('#zip_filename').attr('value')))",
+                                               :onkeyup  => "$('#zip_filename').attr('value', permalink_format($('#zip_filename').attr('value')))") %>
+        <br />
+        <%= image_tag 'ajax-loader-bar.gif', :id => 'collection_zip_loader', :style => 'display:none; margin-top: 10px;' %>
+        <%= submit_tag t('create'), :id => 'submit_button_collection_zip', :style => 'display:none' %>
+      <% end %>

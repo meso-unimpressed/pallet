@@ -1,0 +1,5 @@
+default:
+  id: 1
+  root_path: pallet_container
+  max_upload_file_size: 100
+  theme: default

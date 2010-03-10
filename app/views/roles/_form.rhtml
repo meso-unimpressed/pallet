@@ -1,0 +1,24 @@
+    <% form_for @role do |f| %>
+
+      <div class="container_16 clearfix">
+        <div class="grid_16 m-bottom-30">
+          <%= f.error_messages %>
+        </div>
+      </div>
+
+      <%= focus_input_field_onload(f, :title) %>
+      <div class="container_16 clearfix">
+        <div class="grid_5 suffix_11">
+          <label for="role_title"><%= t('.title') %></label>
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div class="container_16 m-top-30 clearfix">
+        <div class="grid_1 suffix_15">
+          <a href="" class="button-icon-text ui-state-default ui-corner-all left m-bottom-15" onclick="$('#role_submit').click();return false;"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span><%= t('save') -%>
+          </a>
+          <%= f.submit 'save', :class =>"hidden" %>
+        </div>
+      </div>
+
+    <% end %>

@@ -1,0 +1,7 @@
+  page.replace_html 'oca_count', @pallet.one_click_access_list.size
+  page.replace 'oca_list', :partial => 'one_click_access_list'
+
+  # recreate tooltips. if the last tooltip was destroyed, the content will be
+  # smaller than the tooltip size. recreating fixes this.
+  page.call 'eval', '$("#bt-share").qtip("destroy");'
+  page.call 'init_qtips', '#bt-share'

@@ -1,0 +1,190 @@
+/*
+	PALLET - Exchange your files
+	Learn more ~ http://pallet.meso.net
+
+	Licensed under MIT License
+*/
+
+@import url("jquery-ui/jquery-ui-1.7.2.custom.css");
+
+/* =GLOBALS
+--------------------------------------------------------------------------------*/
+body {
+  color: #333333;
+  font: normal 12px Arial, sans-serif;
+  background: #ffffff /*url(./images/body_bkg.jpg) repeat top left fixed*/;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+input,
+button,
+textarea {
+  color: #333333;
+  border: 1px solid #606060;
+  background: #f9f9f9;
+}
+label {
+  color: #333333;
+}
+
+/* =JQUERY UI HELPER
+--------------------------------------------------------------------------------*/
+.button,
+.button-icon-text,
+.button-text-icon {
+  font: normal 10px Arial, sans-serif;
+}
+
+/* =PALLET NAV
+--------------------------------------------------------------------------------*/
+
+#pallet_nav {
+  background: #EFEFEF;
+}
+
+/*#pallet_slat_nav {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 100;
+  background: url(../../images/pallet_slat_small.png) no-repeat 0 0;
+}*/
+
+/* =PALLET INFO
+--------------------------------------------------------------------------------*/
+/*#pallet_info {
+  background: url(./images/bkg_black_64.png) repeat 0 0;
+}*/
+
+/*.pallet_info_bottom {
+  height: 12px;
+  background: yellow url(./images/bordure_32_bottom.png) repeat-x 0 0;
+}*/
+
+#logo {
+  position: relative;
+  width: 154px;
+  height: 58px;
+  margin-top: 20px;
+  background-image: url(./images/logo.png);
+}
+
+/* =DROP STACK
+--------------------------------------------------------------------------------*/
+#drop_stack_area {
+  background: #F5FFFA;
+  border: 1px solid #EFEFEF;
+  border-bottom: 0;
+}
+#drop_stack_actions {
+  background: #F5FFFA;
+  border: 1px solid #EFEFEF;  
+  border-top: 0;
+}
+#drop_stack_listel {
+  background: #F5FFFA;
+  border: 1px solid #EFEFEF;
+  border-top: 0;
+}
+
+/*.drop_stack_listel_bordure {
+  height: 7px;
+  background: url(./images/bordure_bottom.png) repeat-x 0 0;
+}*/
+
+/* =CONTAINERS
+--------------------------------------------------------------------------------*/
+.wd_frame {
+  background: #E3E3E3;
+  -moz-box-shadow: 0px 0px 18px #000000;
+  -webkit-box-shadow: 0px 0px 18px #000000;
+}
+
+/*.bordure_top {
+  margin-top: -8px;
+  height: 7px;
+  background: url(./images/bordure_top.png) repeat-x left top;
+  z-index: 10;
+  padding: 0 10px;
+}*/
+
+/* =LOGIN
+--------------------------------------------------------------------------------*/
+.login_msg {
+  color: #EBEBEB;
+}
+
+/* =MAIN MENU
+--------------------------------------------------------------------------------*/
+.fg-menu-container {
+  -moz-box-shadow: 0px 2px 5px #ffffff;
+  -webkit-box-shadow: 0px 2px 5px #ffffff;
+  z-index: 100;
+}
+
+.fg-menu li.nav_item {
+  margin-top: -1px;
+  border-top: 1px solid #DADADA;
+  border-bottom: 1px solid #DADADA;
+}
+
+/* =Working Directory (WD)
+--------------------------------------------------------------------------------*/
+.drag_box,
+.row_box {
+  margin-top: -1px;
+  border-top: 1px solid #DADADA;
+  border-bottom: 1px solid #DADADA;
+}
+
+.drag_box:hover {
+  background: #E4E4E4;
+}
+
+.file_table .active,
+.file_table .active:hover {
+  background: #E1E1E1;
+}
+
+/* =UPLOADIFY
+-------------------------------------- ------------------------------------------*/
+.uploadifyProgress {
+  background-color: #E4E4E4;
+}
+
+.uploadifyProgressBar {
+  background-color: #FAFAD2;
+}
+
+/* =qTip
+-------------------------------------- ------------------------------------------*/
+/*.qtip-wrapper {
+  -moz-box-shadow: 0px 2px 5px #000000;
+  -webkit-box-shadow: 0px 2px 5px #000000;
+}*/
+
+.tooltip {
+  border-color: #C6C6C6;
+  border-width: 8px;
+  min-width: 40px;
+  max-width: 600px;
+}
+
+.tooltip-radius {
+  /* This is the border radius for rounded corners not the border width.
+     Use 0 to not use rounded borders. */
+  border-width: 8px;
+}
+
+
+/* = IE 6 *HACKS
+--------------------------------------------------------------------------------*/
+* html .button,
+* html .button-icon-text,
+* html .button-text-icon {
+  border: 1px solid #1f1f1f;
+}

@@ -1,0 +1,16 @@
+en:
+  user_sessions:
+    new:
+      title: Sign in with your PALLET account
+      submit: Log In
+      login: Username
+      password: Password
+      login_msg: "This service is intended for authorised users only and may contain confidential and privileged
+                  information. 
+                  <p class='m-top-15'>
+                  <b>MESO Digital Interiors GmbH<br/>
+                  MESO Web Scapes</b><br/>
+                  Niddastrasse 84<br/>
+                  60329 Frankfurt<br/>
+                  Germany<br/>
+                  welcome[a t]meso.net</p>"

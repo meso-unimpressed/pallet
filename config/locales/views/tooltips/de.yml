@@ -1,0 +1,27 @@
+de:
+  tooltip:
+    pallet_select: 'Klicken Sie hier, um eine andere Palette auszuwählen.'
+    pallet_options: 'Optionen für aktuelle Palette: Konfiguration, Benutzer, Rollen, Löschen'
+    pallet_new: 'Neue Palette erstellen'
+    system: 'Administrieren der System Konfiguration: Einstellungen, Benutzer, Rollen. Login Historie.'
+    my_account: 'Account Enstellungen: Email, Name, Passwort'
+    logout: 'Vom Pallet System abmelden. Führen Sie diese Aktion immer aus bevor Sie das Browser Fenster schließen. Sonst kann jeder, der physischen Zugang zu Ihrem Computer hat, auf Ihre Paletten und Dateien zugreifen.'
+      
+    uploadify: 'Halten Sie die Shift-Taste im Datei-Auswahldialog gedrückt, um mehrere Dateien gleichzeitig hochzuladen. Der Upload startet sofort nach dem Auswählen.'
+    move_up: 'Gehe zu höherem Verzeichnis'
+    file_type: 'Datei-Typ'
+    file_name: 'Datei-Name'
+    file_size: 'Datei-Größe'
+    date_time: 'Datum und Zeit'
+    order_by: 'Sortiere nach'
+    currently_selected: 'Aktuell gewählt'
+    click_to_sort: 'Erneut klicken um {{direction}} zu sortieren'
+    
+    pallet_upload: 'Dateien in aktuelles Verzeichnis hochladen'
+    pallet_create_dir: 'Neues Verzeichnis im aktuellen Verzeichnis anlegen'
+    pallet_oca: 'One-Click-Access erzeugen, löschen und verwalten'
+    delete_selection: 'Ausgewählte Dateien und Verzeichnisse löschen'
+    zip_collection: 'ZIP-Datei mit ausgewählten Dateien und Verzeichnissen erzeugen'
+    clear_collection: 'Die gewählten Dateien und Verzeichnisse aus der Zwischenablage entfernen'
+    paste_collection: 'Die gewählten Dateien und Verzeichnisse aus der Zwischenablage in das aktuelle Verzeichnis kopieren'
+    move_collection: 'Die gewählten Dateien und Verzeichnisse aus der Zwischenablage in das aktuelle Verzeichnis bewegen'

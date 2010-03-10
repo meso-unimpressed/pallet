@@ -1,0 +1,113 @@
+de:
+  new_pallet: 'Neue Palette'
+  edit_pallet: 'Paletten Konfiguration für &raquo;{{name}}&laquo;'
+
+  pallets:
+    no_pallets_available: Es existieren zurzeit keine Paletten, bitte erzeugen Sie welche.
+    no_accessible_pallets: Es existieren zurzeit keine Paletten auf die Sie Zugriff haben.
+    delete_pallet_confirm: 'Wollen Sie wirklich die Palette &raquo;{{name}}&laquo; löschen?\nAchtung: alle darin enthaltenen Dateien werden entfernt.'
+
+    action_container_top:
+      upload: Dateien hochladen
+      new_directory: Neues Verzeichnis
+      one_click_access: One Click Access
+      delete_selection: Auswahl löschen
+      confirm_delete_selection: Gesamte Auswahl löschen?
+
+    show:
+      upload_files: Dateien hochladen
+      create_directory: Neues Verzeichnis erstellen
+      rename_element: Element umbenennen
+      manage_oca: One Click Access hinzufügen
+      zip_collection: Name für ZIP-Datei
+
+    file_table:
+      confirm_delete_file: 'Wollen Sie wirklich diese Datei löschen?'
+      confirm_delete_directory: 'Wollen Sie wirklich dieses Verzeichnis und alle Dateien und Unterverzeichnisse darin löschen?'
+      confirm_clear_collection: Zwischenablage leeren?
+      zip_collection: zip
+      clear_collection: clear
+      paste_collection: paste
+      move_collection: move
+
+    uploadify:
+      cancel_all_uploads: 'Alle Uploads abbrechen'
+
+    uploadify_js_code:
+      cancelled_exists: 'Abgebrochen / Datei existiert'
+
+    form:
+      name: Name
+      description: Beschreibung
+      pallet_user_association: Benutzer Verknüpfung
+      file_types: Erlaubte Datei-Typen
+      one_click_access_generation_by_users: One-Click-Access Erstellung durch Benutzer
+      is_readonly: Schreibgeschützt
+      creator_login: Ersteller-Login
+      creator_email: Ersteller-Email
+
+      tip:
+        name: '<h1>Name der Palette.</h1>Wird zur Identifizierung im Paletten Auswahldialog angezeigt und in Emails verwendet.<br/>'
+        description: 'Beschreibender Text für die Palette.'
+        pallet_user_association: 'Benutzer können automatisch mit einer Palette verknüpft werden.<br />Geben Sie Benutzernamen oder Email-Adressen ein, meherere durch Komma separiert. Unbekannte Email-Adressen werden verwendet um Benutzer Accounts zu erstellen, die entsprechenden Benutzer erhalten automatisch eine Email mit Zugangsdaten.'
+        file_types: 'Nur Dateien mit den angegebenen Extensionen können hochgeladen werden, andere werden abgelehnt.<br />Beispiele:<ul><li>* = alle</li><li>jpg = nur JPG Bilder</li><li>doc xls = nur Word und EXCEL Dokumente</li></ul>'
+        one_click_access_generation_by_users: 'Wenn der Haken gesetzt ist können normale Benutzer (nicht-Administratoren) One-Click-Access erstellen.<br />Administratoren können immer One-Click-Accesses erstellen.'
+        is_readonly: 'Wenn der Haken gesetzt ist können Benutzer keine Dateien oder Verzeichnisse in dieser Pallet ändern, sondern nur anschauen oder herunterladen.<br />Administratoren können immer Dateien Hochladen, löschen oder umbenennen.'
+
+    one_click_access_form:
+      expiration_date: Gültigkeit
+      download: Auf ausgewählte Datei beschränken
+      send_access_to: Email-Empfänger der Einladung
+      email_notes: Zusätzliche Bemerkungen für die Access-Email
+      
+      tip:
+        download: Die Funktion steht nur zur Verfügung, wenn eine einzelne Datei angewählt ist.<br/>Die Datei wird sofort an den Benutzer gesendet (das Download-Fenster des Browsers öffnet sich), wenn der One-Click-Access geöffnet wird. Der Benutzer hat keinen Zugriff auf andere Dateien und kann keine Dateien hochladen.
+        send_access_to: Mehrere Adressen können kommasepariert eingegeben werden. An jede Adresse wird eine Email mit dem One-Click-Access und Paletten Namen gesendet.
+        email_notes: Notieren Sie hier eine Beschreibung für den Email-Empfänger.<br/>Dieser Text wird am Anfang der Email erscheinen.
+        language: Sprache des Benutzer-Interfaces und der Zugriffs-Email. 
+
+    one_click_access_list:
+      add_oca: Hinzufügen
+      copy: Kopieren
+      delete: Löschen
+      root_access: Zugang zum Stammverzeichnis
+      restricted: Eingeschränkter Zugang auf
+      no_oca: "Es ist kein <i>One-Click-Access</i>-Zugang angelegt.<br/>
+
+              <h2 class='m-top-15'>Was ist ein One Click Access Token?</h2>
+              Ein One-Click-Access (OCA) erlaubt den Zugriff auf ein Verzeichnis  
+
+              One-Click-Access (OCA) allows access restricted to a directory and
+              a specified period of time, without generating user accounts by a single unique URL.
+
+              <h2 class='m-top-15'>What does it look like?</h2>
+              <div class='m-bottom-10'>The token is a random generated string forming an unique URL:</div>
+
+              <div class='oca_token ui-state-highlight'>
+                <div class='clearfix'>
+                  <div class='oca_link left'>
+                    <a href=''>http://your.domain.tld/oca/vaho-buva-pizu-pihe</a>
+                  </div>
+                  <div class='right'>
+                    <a href='' class='button-icon-text ui-corner-all right'><span class='ui-icon ui-icon-cancel'/>Delete</a>
+                    <a class='button-icon-text ui-corner-all right' href=''><span class='ui-icon ui-icon-clipboard'/>Copy</a>
+                  </div>
+                </div>
+                <div class='oca_send_to'>you@your.domain.tld</div>
+                <hr class='ui-state-highlight'/>
+                <div>
+                   <b>Expires In </b>1 day
+                   <b> At </b>09/12/2009 23:59
+                </div>
+              </div>
+
+              <h2 class='m-top-15'>How does it work?</h2>
+              <ul class='square m-left-15'>
+                <li>Choose a directory and select <i>ADD</i> within the OCA overlay window.</li>
+                <li>Select an expiration date, invitation receivers and the invitation/interface language for the OCA.</li>
+                <li>You can also provide an optional note to the invitation message.</li>
+                <li>A invitation including the One-Click-Access link, the expiration date and your optional personal note will be send to every specified receiver.</li>
+                <li>The receivers can use the unique link to get instantly access to the system.</li>
+              </ul>
+              "
+

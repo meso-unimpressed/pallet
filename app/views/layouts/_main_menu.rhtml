@@ -1,0 +1,81 @@
+<div id="pallet_nav" class="clearfix png">
+
+  <!-- pallet // options -->
+  <div id="pallet_selection" class="left">
+    <% show_ready_condition = (@pallet and controller.action_name == 'show' and current_user and accessible_pallets.size > 1 and @sub_path.to_s == '') %>
+    <div id="bt-switch_pallet" class="ui-state-default ui-corner-all button-text-icon left" tooltip="<%= t('tooltip.pallet_select') if accessible_pallets.size > 1 %>" tooltip_opt="<%= tooltip_options(:show_ready => show_ready_condition, :auto_hide => 10000, :position => 'nnw-s', :hide_when => 'unfocus') %>">
+      <span class="left"><%= t('pallet') %>: <%= current_pallet_name %></span><span class="ui-icon ui-icon-triangle-1-s"></span>
+    </div>
+    <div id="available_pallets" class="hidden">
+      <%= render :partial => 'pallets/sub_menu' %>
+    </div>
+    <% if @pallet and not @pallet.new_record? and current_user_has_role? 'admin' %>
+      <a href="" id="bt-pallet-settings" class="ui-state-default ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.pallet_options') %>" tooltip_opt="<%= tooltip_options(:position => 'nnw-s', :show_solo => true) %>"><span class="ui-icon ui-icon-gear"></span><%= t('options') %></a>
+
+      <div id="pallet_settings" class="hidden">
+        <%= render :partial => 'pallets/settings' %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- new pallet // system -->
+  <% if logged_in? and current_user_has_role? 'admin' %>
+    <div id="pallet_option" class="left">
+      <%= ui_button_to(:label => t('navi.button.pallet_new'), :icon => 'plusthick',
+	  									 :url => '/pallets/new',
+		  								 :id => 'bt-new_pallet', :class => 'left',
+                       :tooltip => t('tooltip.pallet_new'),
+                       :tooltip_opt => tooltip_options(:show_solo => true)) %>
+
+      <a href="" id="bt-system" class="ui-corner-all button-icon-text left" tooltip="<%= t('tooltip.system') %>" tooltip_opt="<%= tooltip_options(:show_solo => true) %>">
+        <span class="ui-icon ui-icon-wrench"></span><%= translate 'navi.button.system' %>
+      </a>
+
+      <div id="system-options" class="hidden">
+        <%= render :partial => 'pallet_global_configs/sub_menu' %>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- my account // log out -->
+  <div id="settings_nav">
+    <% if logged_in? %>
+      <%= ui_button_to(:label => t('navi.button.my_account'), :icon => 'person',
+			  							 :url => '/users/edit/' + current_user_id.to_s,
+				  						 :id => 'bt-my_account', :class => 'left',
+                       :tooltip => t('tooltip.my_account'),
+                       :tooltip_opt => tooltip_options(:show_solo => true)) %>
+    <% end %>
+    <%= ui_button_to(:label => t('navi.button.logout'), :icon => 'cancel',
+                     :url => '/logout',
+                     :id => 'bt-log_out', :class => 'left',
+                     :tooltip => t('tooltip.logout'),
+                     :tooltip_opt => tooltip_options(:show_solo => true, :position => (logged_in? ? 'n-s' : 'nnw-s'))) %>
+  </div>
+
+  <% hide_if_ie6 do %>
+    <!-- drop_stack hover helper -->
+    <div id="drop_stack_hover_helper"></div>
+  <% end %>
+</div>
+
+<!-- modal dialogs -->
+<% if @pallet and not @pallet.new_record? and current_user_has_role? 'admin' %>
+  <div id="user_association_dialog" title="<%= t('manage_users_for_pallet', :name => @pallet.standard_role_name) %>" style="display:none">
+    <div id="user_association">
+      <%= render :partial => 'users', :locals => { :current_users => @pallet.standard_role_user_ids,
+                                                   :id => @pallet.id,
+                                                   :show_admin_roles => false } %>
+    </div>
+  </div>
+  <div id="role_association_dialog" title="<%= t('manage_roles_for_pallet', :name => @pallet.name) %>" style="display:none">
+    <div id="role_association">
+      <%= render :partial => 'roles', :locals => { :controller_name => 'pallets',
+                                                   :id => @pallet.id,
+                                                   :current_roles => @pallet.role_ids,
+                                                   :show_admin_roles => false,
+                                                   :show_pallet_roles => false } %>
+    </div>
+  </div>
+<% end %>
+<!-- /modal dialogs -->

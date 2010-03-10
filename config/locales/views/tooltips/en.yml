@@ -1,0 +1,27 @@
+en:
+  tooltip:      
+    pallet_select: 'Click here to select another Pallet.'
+    pallet_options: 'Access pallet options for current Pallet: Configuration, Users, Roles, Delete'
+    pallet_new: 'Create a new Pallet'
+    system: 'Administer System Settings: Preferences, Users, Roles or check the Login History'
+    my_account: 'Edit your account settings: Email, Name, Password'
+    logout: 'Log out from Pallet system.<br />Always perform this action before you close the browser window,<br />otherwise anyone with physical access to your computer can access your Pallets and files.'
+
+    uploadify: 'Multiple file upload with shift-select within your file browser. Upload starts immediately after file selection.'
+    move_up: 'Move to upper directory'
+    file_type: 'file type'
+    file_name: 'file name'
+    file_size: 'file size'
+    date_time: 'date and time'
+    order_by: 'Order by'
+    currently_selected: 'Currently selected'
+    click_to_sort: 'Click again to sort {{direction}}'
+    
+    pallet_upload: 'Upload files into current directory'
+    pallet_create_dir: 'Create a new directory in current directory'
+    pallet_oca: 'Manage, create or delete One-Click-Accesses'
+    delete_selection: 'Delete selected files and directories'
+    zip_collection: 'Create ZIP-file with selected files and directories'
+    clear_collection: 'Clear the collection of files and directories'
+    paste_collection: 'Copy the collection of files and directories into current directory'
+    move_collection: 'Move the collection of files and directories into current directory'

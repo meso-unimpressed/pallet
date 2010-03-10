@@ -1,0 +1,9 @@
+				<div id="flash_box_dialog" class="flash_box m-bottom-15">
+				  <% if flash and (flash[:notice] or flash[:error]) -%>  
+						<%= "<div class=\"ui-state-highlight ui-corner-all\">#{flash[:notice]}</div>" if flash[:notice] and not flash[:notice].blank? %>
+						<%= "<div class=\"ui-state-error ui-corner-all\">#{flash[:error]}</div>"   if flash[:error]  and not flash[:error].blank? %>
+						<script type="text/javascript">
+							$("#flash_box_dialog").delay(1600).slideToggle('slow');
+						</script>
+					<% end -%>
+					</div>

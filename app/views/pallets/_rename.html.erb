@@ -1,0 +1,6 @@
+      <% form_tag("/pallets/rename", :id => 'rename_file') do %>
+        <%= hidden_field_tag 'rename_sub_path' %>
+        <%= hidden_field_tag 'rename_original_filename' %>
+        <%= text_field_tag 'rename_new_filename', '', :style => 'width: 320px;' %>
+        <%= submit_tag 'Rename', :id => 'submit_button_rename', :style => 'display:none' %>
+      <% end %>      

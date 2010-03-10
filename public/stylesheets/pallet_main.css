@@ -1,0 +1,498 @@
+/*
+	PALLET - Exchange your files
+	Learn more ~ http://pallet.meso.net
+
+	Licensed under MIT License
+*/
+
+/* =GLOBALS
+--------------------------------------------------------------------------------*/
+
+body {
+  font: normal 12px Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-weight: normal;
+}
+
+li {
+  border: none;
+}
+ul.square {
+	list-style: square;
+  list-style-position: outside;
+}
+ul.square li {
+  margin-bottom: 5px;
+}
+h2 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+/* =FORM
+--------------------------------------------------------------------------------*/
+fieldset {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0 0 3px;
+}
+input,
+button,
+textarea {
+  padding: 5px 5px 3px 5px;
+  margin-bottom: 12px;
+  background-color: transparent;
+  border: 1px solid;
+  line-height: 14px;
+}
+select {
+  margin-bottom: 12px;
+}
+.container_16 input,
+.container_16 textarea {
+  width: 97%;
+}
+.container_16 input.checkbox {
+  width: auto;
+}
+.h-50 { height: 50px; }
+.h-100 { height: 100px; }
+.h-200 { height: 200px; }
+.h-300 { height: 300px; }
+
+.inactive { opacity: 0.4; }
+
+/* =JQUERY UI HELPER
+--------------------------------------------------------------------------------*/
+.button {
+  position: relative;
+  width: 24px;
+  height: 16px;
+  padding: 4px 0;
+  cursor: pointer;
+  font: normal 10px Arial, sans-serif;
+}
+
+a.button {
+  margin-left: 2px;
+  position: relative;
+  padding: 4px 0;
+  float: left;
+}
+
+.button span.ui-icon {
+  float: left;
+  margin: 0 4px;
+}
+
+.button-icon-text {
+  height: 13px;
+  position: relative;
+  margin-left: 2px;
+  padding: 7px 10px 4px 24px;
+  cursor: pointer;
+  font: normal 10px Arial, sans-serif;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.button-icon-text span.ui-icon {
+  margin: -3px 5px 0 4px;
+  position: absolute;
+  left: 2px;
+}
+
+.button-icon-text,
+.button-icon-text a,
+.button-icon-text a:hover,
+.button-text-icon,
+.button-text-icon a,
+.button-text-icon a:hover {
+  font: normal 10px Arial, sans-serif;
+}
+
+.button-text-icon {
+  position: relative;
+  float: left;
+  margin-left: 2px;
+  padding: 0.6em 1em 0.4em;
+  cursor: pointer;
+  font: normal 10px Arial, sans-serif;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.button-text-icon span {
+  font-size: 10px;
+}
+
+.button-text-icon span.ui-icon {
+  position: relative;
+  float: left;
+  margin: -2px 0 0 3px;
+  padding: 0;
+}
+
+.icon-inline {
+  margin: -1px 5px 0px 0px;
+}
+
+/* =PALLET INFO
+--------------------------------------------------------------------------------*/
+#pallet_info {
+  width: 100%;
+  height: 90px;
+  margin-top: 53px;
+  z-index: 1;
+}
+
+/* =CONTAINERS
+--------------------------------------------------------------------------------*/
+.flow_frame {
+  position: relative;
+  margin: 0 20px;
+  min-width: 920px;
+  padding: 0 10px;
+}
+
+.wd_frame {
+  position: relative;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+.login_frame {
+  position: relative;
+  width: 320px;
+}
+
+/* =LOGIN
+--------------------------------------------------------------------------------*/
+.login_container {
+  width: 565px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login_box {
+  padding: 8px 8px;
+}
+
+.login_msg {
+  position: absolute;
+  width: 190px;
+  margin-left: 355px;
+  margin-top: 50px;
+}
+
+.login_box input {
+  width: 280px;
+}
+
+/* =MAIN MENU
+--------------------------------------------------------------------------------*/
+#pallet_nav {
+  margin: 0px;
+  padding: 8px 0 0 23px;
+  height: 60px;
+  width: 100%;
+  top: 0px;
+  z-index: 99;
+  position: fixed;
+}
+
+#pallet_selection,
+#pallet_option {
+  position: relative;
+  height: 25px;
+  padding: 6px 4px;
+  margin-right: 30px;
+}
+
+#pallet_selection {
+  margin-right: 13px;
+}
+
+#bt-switch_pallet {
+  position: relative;
+  padding-left: 23px;
+}
+
+#settings_nav {
+  position: relative;
+  padding: 6px 2px 2px 0px;
+}
+
+/* =DROP STACK
+--------------------------------------------------------------------------------*/
+#drop_stack {
+  position: fixed;
+  top: -244px;
+  /*left: 685px;*/
+  left: 720px;
+  height: 300px;
+  width: 270px;
+  z-index: 98;
+}
+
+#drop_stack_area {
+  height: 240px;
+  width: 270px;
+  padding: 12px 10px 10px 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#drop_stack_listel {
+  width: 59px;
+  height: 15px;
+  padding: 14px 0 12px 25px;
+  margin-left: 102px;
+}
+
+.drop_stack_listel_bordure {
+  width: 83px;
+  margin-left: 102px;
+}
+
+#drop_stack_actions {
+  width: 270px;
+  height: 25px;
+  padding: 5px 10px;
+}
+
+#drop_stack_hover_helper {
+  position: absolute;
+  left: 685px;
+  top: 0;
+  width: 270px;
+  height: 48px;
+  background: transparent;
+  padding: 10px;
+}
+
+/* =Flash Box
+--------------------------------------------------------------------------------*/
+.flash_box {
+  position: relative;
+}
+
+.flash_box div {
+  padding: 12px;
+  margin-top: 4px;
+}
+
+/* =BUTTONS / ICONS 16x16
+--------------------------------------------------------------------------------*/
+
+/* =Lines
+--------------------------------------------------------------------------------*/
+/* check usage and remove when possible */
+hr.overlay_35 {
+  width: 940px;
+  height: 2px;
+  border: 0px;
+  margin: 6px 0px 0px 0px;
+  background: transparent url(../images/hr_overlay_35.png) no-repeat 0 0;
+}
+
+.pallet_sub_top {
+  position: absolute;
+  top: 37px;
+  z-index: 100;
+}
+
+/* =Working Directory (WD)
+--------------------------------------------------------------------------------*/
+#wd_container {
+  clear: both;
+}
+
+#wd_action_top_container {
+  clear: both;
+  height: 30px;
+  overflow: hidden;
+  padding: 10px 0 20px;
+  text-align: left;
+}
+
+.wd {
+  min-height: 200px;
+  padding: 20px 0 10px 0;
+}
+
+.sort_box {
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+.drag_box,
+.row_box {
+  height: 20px;
+  margin-top: -1px;
+  padding: 5px 0 0 0;
+}
+
+#drag_helper {
+  z-index: 99;
+}
+
+.wd .omega {
+  width: 150px;
+}
+
+/* =PALLET ACCESS
+--------------------------------------------------------------------------------*/
+.toggle-box {
+  width: 165px;
+  height: 22px;
+  margin: 0 8px 8px 0;
+  padding: 6px 5px 0;
+}
+
+.toggle-box .title {
+  display: block;
+  width: 135px;
+  padding: 1px 0 0 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* =UPLOADIFY
+--------------------------------------------------------------------------------*/
+#fileQueue {
+  margin-top: 15px;
+}
+
+.uploadifyQueueItem {
+  margin-top: 5px;
+  padding: 10px;
+  width: 95%;
+}
+
+.uploadifyQueueItem .cancel {
+  float: right;
+}
+
+.uploadifyProgress {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.uploadifyProgressBar {
+  width: 1px;
+  height: 3px;
+}
+
+#uploadify_clear_queue_button {
+  visibility: hidden;
+}
+
+/* uploadify_for_macs */
+#upload_box_surrounding_container {
+  width: 490px;
+}
+
+.upload_box {
+  float: left;
+  width: 235px;
+}
+
+#upload_box_surrounding_container h1 {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+#upload_box_surrounding_container h2 {
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-transform: none;
+}
+#upload_box_surrounding_container p {
+  margin: 10px 0;
+}
+
+#upload_box_surrounding_container .left_space {
+  margin-left: 20px;
+}
+
+#fileQueue {
+  clear: both;
+}
+
+/* hack: clear queue button icon was displayed outside the button. moving it back into place */
+#upload .button-icon-text span.ui-icon {
+  margin-top: -14px;
+}
+/* /uploadify_for_macs */
+
+/* =OCA
+--------------------------------------------------------------------------------*/
+.oca_list {
+  width: 510px;  
+}
+
+.oca_tokens {
+  width: 510px;
+}
+
+.oca_token {
+  padding: 5px;
+}
+
+.oca_link {
+  padding-top: 6px;
+  width: 320px;
+  overflow: hidden;
+}
+
+.oca_sub_path {
+  margin-bottom: 5px;
+  padding: 8px 5px;
+}
+
+.clip_container {
+  position: relative;
+}
+
+/* =TIP & Credits
+--------------------------------------------------------------------------------*/
+#pallet-credit {
+  margin-top: 20px;
+}
+
+/* = TEST / TEMP / DUMMY
+--------------------------------------------------------------------------------*/
+.wd .ghost {
+  float: none;
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  color: black;
+}
+
+/* =MARGIN BLOCKS
+--------------------------------------------------------------------------------*/
+.no_overflow_no_wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* =OVERWRITE ---- MUST APPEND TO ALL OTHER STYLES ----
+--------------------------------------------------------------------------------*/
+.container_16 {
+  width: auto;
+  margin: auto;
+}

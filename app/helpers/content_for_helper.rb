@@ -21,16 +21,22 @@ module ContentForHelper
   end
 
   # does only work for views, not for layouts or partials rendered in layouts!
+  #
+  # WARNING: This function seems to create the cache file only once.
+  #          Use refresh_asset_cache initializer to solve this problem!
+  #
   def custom_javascripts(javascripts, plain_script = '')
-    #id = 'unobtrusive_' + Digest::MD5.hexdigest([javascripts].compact.join(','))
-    ##logger.debug "\n===> #{javascripts.to_yaml}\n"
-    ##logger.debug "\n===> #{id}\n"
-    #content_for :javascripts do
-    #  javascript_include_tag(javascripts, :cache => id) + plain_script
-    #end
-    includes = []
-    javascripts.each { |script| includes << javascript_include_tag(script) }
-    content_for :javascripts do includes.join("\n    ") + "\n    " + plain_script end    
+    id = 'cached_unobtrusive_' + Digest::MD5.hexdigest([javascripts].compact.join(','))
+    #logger.debug "\n===> #{javascripts.to_yaml}\n"
+    #logger.debug "\n===> #{id}\n"
+    content_for :javascripts do
+      javascript_include_tag(javascripts, :cache => id) + plain_script
+    end
+
+    # here the old plain uncached version:
+    #includes = []
+    #javascripts.each { |script| includes << javascript_include_tag(script) }
+    #content_for :javascripts do includes.join("\n    ") + "\n    " + plain_script end
   end
   
 end

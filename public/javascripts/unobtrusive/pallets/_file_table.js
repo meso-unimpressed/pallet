@@ -45,15 +45,23 @@ function create_oca_clips() {
   var links = $('#oca_list .oca_link a');
   var token_url = '';
 
-  links.each(function() {
-    token_url = $(this).attr('href');
-    //debug(token_url);
+  debug(links.length);
 
-    ZeroClipboard.setMoviePath('/javascripts/zero_clipboard/ZeroClipboard.swf');
-    clip_list.push(create_clip('oca_clip_button_' + index, 'oca_clip_container_' + index, token_url));
+  var last_button = $('#oca_clip_button_' + links.length-1);
+  if(last_button.width() == 0) {
+    // if last button is not yet DOM-layouted, wait for it - necessary since AJAX seems to not fire .load() events
+    window.setTimeout("create_oca_clips()", 100);
+  } else {
+    links.each(function() {
+      token_url = $(this).attr('href');
+      debug(token_url);
 
-    index++;
-  });
+      ZeroClipboard.setMoviePath('/javascripts/zero_clipboard/ZeroClipboard.swf');
+      clip_list.push(create_clip('oca_clip_button_' + index, 'oca_clip_container_' + index, token_url));
+
+      index++;
+    });
+  }
 }
 
 function init_oca_buttons() {

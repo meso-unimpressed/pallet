@@ -55,7 +55,7 @@ function create_oca_clips() {
   } else {
     links.each(function() {
       token_url = $(this).attr('href');
-      debug(token_url);
+      //debug(token_url);
 
       ZeroClipboard.setMoviePath('/javascripts/zero_clipboard/ZeroClipboard.swf');
       clip_list.push(create_clip('oca_clip_button_' + index, 'oca_clip_container_' + index, token_url));

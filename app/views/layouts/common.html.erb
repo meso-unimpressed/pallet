@@ -37,9 +37,9 @@
 
 
     <!-- debugging helper scripts -->
-    <%# if Rails.env == 'development' %>
+    <% if Rails.env == 'development' %>
       <%= javascript_include_tag 'debug', 'object_inspection' %>
-    <%# end %>
+    <% end %>
     
     <!-- jquery -->
     <%= javascript_include_tag 'jquery/jquery-1.4.1.min',

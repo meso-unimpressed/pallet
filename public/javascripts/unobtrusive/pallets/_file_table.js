@@ -45,10 +45,10 @@ function create_oca_clips() {
   var links = $('#oca_list .oca_link a');
   var token_url = '';
 
-  debug(links.length);
+  //debug(links.length - 1);
 
-  var last_button = $('#oca_clip_button_' + links.length-1);
-  //debug(last_button.attr('id'));
+  var last_button = $('#oca_clip_button_' + (links.length-1));
+  debug('#oca_clip_button_' + (links.length-1) + ': ' + last_button.width());
   if(last_button.width() == 0) {
     // if last button is not yet DOM-layouted, wait for it - necessary since AJAX seems to not fire .load() events
     window.setTimeout("create_oca_clips()", 100);
@@ -75,8 +75,8 @@ function init_oca_buttons() {
         return false;
     });
     init_hover_states();
-    //create_oca_clips();
-    window.setTimeout("create_oca_clips()", 10000);
+    create_oca_clips();
+    //window.setTimeout("create_oca_clips()", 2000);
   });
 }
 

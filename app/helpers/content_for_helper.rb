@@ -33,7 +33,7 @@ module ContentForHelper
     #  javascript_include_tag(javascripts, :cache => id) + plain_script
     #end
 
-     here the old plain uncached version:
+    # here the old plain uncached version:
     includes = []
     javascripts.each { |script| includes << javascript_include_tag(script) }
     content_for :javascripts do includes.join("\n    ") + "\n    " + plain_script end

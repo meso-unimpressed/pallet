@@ -48,6 +48,7 @@ function create_oca_clips() {
   debug(links.length);
 
   var last_button = $('#oca_clip_button_' + links.length-1);
+  //debug(last_button.attr('id'));
   if(last_button.width() == 0) {
     // if last button is not yet DOM-layouted, wait for it - necessary since AJAX seems to not fire .load() events
     window.setTimeout("create_oca_clips()", 100);
@@ -74,7 +75,8 @@ function init_oca_buttons() {
         return false;
     });
     init_hover_states();
-    create_oca_clips();
+    //create_oca_clips();
+    window.setTimeout("create_oca_clips()", 10000);
   });
 }
 

@@ -63,9 +63,9 @@ If you want to use LDAP authentification:
 
 Edit config/auth.yml, set "enable_ldap" to true.
 
-If you want to use automatic One-Click-Access invitation mails:
+If you want to send automatic One-Click-Access invitation mails via SMTP:
 
-Adjust config/oca_mailer.yml to your needs.
+Adjust config/oca_mailer.yml to your needs. Delete config/oca_mailer.yml to use the built-in system mailer.
 
 If you do want to use x-sendfile (Lighttpd/Apache2) in production environment:
 

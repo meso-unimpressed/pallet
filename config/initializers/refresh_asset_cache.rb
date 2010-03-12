@@ -5,8 +5,8 @@
 
 if ActionController::Base.perform_caching
   begin
-    files =  Dir.glob(Rails.root.join('public', 'javascripts', "cached_*.*"))
-    files += Dir.glob(Rails.root.join('public', 'stylesheets', "cached_*.*"))
+    files =  Dir.glob(File.join(Rails.root, 'public', 'javascripts', "cached_*.*"))
+    files += Dir.glob(File.join(Rails.root, 'public', 'stylesheets', "cached_*.*"))
 
     unless files.empty?
       #puts "Removing cached files:"

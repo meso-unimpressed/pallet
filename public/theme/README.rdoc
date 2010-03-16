@@ -9,18 +9,20 @@ Preferences interface in Pallet.
 
 == How to create custom themes
 
-1. Visit the jQuery Themeroller website and download a theme
+1. Visit the jQuery Themeroller website and download a theme:
 
   http://jqueryui.com/themeroller
 
-2. Copy an existing theme directory
+2. Copy an existing theme directory.
   
 3. Overwrite in your new theme directory the directory "images" and the file 
-   "jquery-ui-1.7.2.custom.css" with according directory and file from
+   "jquery-ui-1.7.2.custom.css" with according directory and file from:
 
   [jquery-ui-1.7.2.custom.zip]/development-bundle/themes/[theme name]
 
-4. Edit the theme.info file.
+4. Change the favicon.ico file, if you want to use a theme specific icon.
+
+5. Edit the theme.info file.
   
-5. The next time you open the System Preferences interface in Pallet, the new 
+6. The next time you open the System Preferences interface in Pallet, the new 
    theme will be available for selection.

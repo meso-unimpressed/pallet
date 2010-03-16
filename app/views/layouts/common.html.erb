@@ -85,7 +85,7 @@
     <%= javascript_tag "I18n.defaultLocale = '#{I18n.default_locale}'" %>
     <%= javascript_tag "I18n.locale = '#{I18n.locale}'" %>
 
-    <link rel="shortcut icon" href="/favicon.ico" />    
+    <link rel="shortcut icon" href="<%= "../theme/#{PalletGlobalConfig.theme}/favicon.ico" %>" />    
   </head>
 
 

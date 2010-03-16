@@ -26,14 +26,23 @@ function open_rename_dialog(sub_path, original_name) {
 }
 
 
-
 /***** _one_click_access_list.html functions *****/
 
 // creates a clipboard flash movie button and adds fake hover event
 function create_clip(button, container, content) {
   var clip = new ZeroClipboard.Client();
   clip.setText(content);
-  clip.addEventListener('mouseOver', function(client) {$('#' + button).toggleClass('ui-state-hover');});
+  clip.addEventListener('mouseOver', function(client) { $('#' + button).toggleClass('ui-state-hover'); });
+  // change tooltip to "copied!" on mouse click
+  clip.addEventListener('onMouseUp', function(client) {
+      $('#' + container).qtip("api").updateContent(I18n.t('pallets.one_click_access_list.tip.copied'), true);
+      window.setTimeout(function() {
+          $('#' + container).qtip('hide');
+          window.setTimeout(function() {
+              $('#' + container).qtip("api").updateContent(I18n.t('pallets.one_click_access_list.tip.copy'), true);
+          }, 800);
+      }, 2000);
+  });
   clip.glue(button, container);
   return clip;
 }
@@ -59,6 +68,7 @@ function create_oca_clips() {
 
       ZeroClipboard.setMoviePath('/javascripts/zero_clipboard/ZeroClipboard.swf');
       clip_list.push(create_clip('oca_clip_button_' + index, 'oca_clip_container_' + index, token_url));
+      init_qtips('#oca_clip_container_' + index);
 
       index++;
     });

@@ -38,7 +38,7 @@
                                                      '$.getScript(\"#{url_for({:action => 'destroy_one_click_access', :id => pallet_one_click_access, :sub_path => @sub_path }) }\")');
                                                      return false" %>
 
-              <div id="oca_clip_container_<%= oca_index.to_s -%>" class="right clip_container">
+              <div id="oca_clip_container_<%= oca_index.to_s -%>" class="right clip_container" tooltip="<%= t '.tip.copy' %>" tooltip_opt="<%= tooltip_options(:show_delay => 0, :position => 'n-s') %>">
                 <div id="oca_clip_button_<%= oca_index.to_s -%>" href="#" class="button-icon-text ui-corner-all right">
                   <span class="ui-icon ui-icon-clipboard"></span><%= t '.copy' -%>
                 </div>

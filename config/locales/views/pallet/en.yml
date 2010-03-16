@@ -108,3 +108,6 @@ en:
                 <li>The receivers can use the unique link to get instantly access to the system.</li>
               </ul>
               "
+      tip:
+        copy: Copy link to clipboard
+        copied: copied!

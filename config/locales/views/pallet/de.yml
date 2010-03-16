@@ -110,4 +110,7 @@ de:
                 <li>The receivers can use the unique link to get instantly access to the system.</li>
               </ul>
               "
+      tip:
+        copy: Link in Zwischenablage kopieren
+        copied: kopiert!
 

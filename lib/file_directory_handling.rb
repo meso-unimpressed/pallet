@@ -198,6 +198,9 @@ module FileDirectoryHandling
       return if goto_root_on_invalid_path(file_path, 'file')
     end
 
+    logger.info "\n===> #{file_path}\n"
+    logger.info "\n===> #{File.exist?(file_path)}\n"
+    logger.info "\n===> #{File.size(file_path)}\n"
     TRAFFIC_LOG.info "File Download: Path: #{file_path}, Bytes: #{File.size(file_path)}, User: #{current_user ? current_user.login : session[:oca_token]}"
     #send_file_with_mime_type file_path
     if Settings.x_accel_redirect

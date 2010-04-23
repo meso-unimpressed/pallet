@@ -51,7 +51,7 @@ Pallet lets you up- and download files using your browser with a simple interfac
 
 5. Start the setup script (will create DB, set random forgery protection secret, create admin account)
 
-  rake bootstrap
+  rake bootstrap RAILS_ENV=production
   
 6. Start the server
 

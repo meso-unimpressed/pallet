@@ -5,6 +5,8 @@ config/auth.yml
 config/database.yml
 config/oca_mailer.yml
 config/settings.yml
+config/oca_mailer.yml
+config/locales/particular/*.yml
 *.log
 pallets/*/*
 pallet_container/*/*
@@ -16,5 +18,3 @@ pallet_container/*/*
 *.swp
 public/javascripts/cached_javascripts.js
 public/stylesheets/cached_stylesheets.css
-config/oca_mailer.yml
-

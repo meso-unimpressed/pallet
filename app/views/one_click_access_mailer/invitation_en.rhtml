@@ -10,7 +10,7 @@ A One-Click-Access has been generated for you, to access the pallet '<%= @one_cl
 - Use the following link to tranfer files from/to the pallet:
 -
 -   <%= url_for :host => PalletGlobalConfig.domain,
-                :protocol => PalletGlobalConfig.domain_ssl? ? 'https' : 'http', 
+                :protocol => PalletGlobalConfig.domain_ssl? ? 'https' : 'http',
                 :controller => 'oca', :action => @one_click_access.token %>
 -
 - This token will expire at:
@@ -18,10 +18,4 @@ A One-Click-Access has been generated for you, to access the pallet '<%= @one_cl
 -   <%= I18n.l( @one_click_access.expires_at, :format => :default, :locale => :en) %>
 ----------------------------------------------------------------------
 
---
-MESO Digital Interiors GmbH
-MESO Web Scapes
-Niddastraße 84
-60329 Frankfurt
-Germany
-+49 (0)69 24 000 330
+<%= t 'particular.mail_signature' %>

@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
-    <% default_page_title_prefix = 'PALLET© MESO Web Scapes ' -%>
-    <title><%= title_customized_by_view((yield :title), default_page_title_prefix) %></title>    
-    
+    <% default_page_title_prefix =  -%>
+    <title><%= title_customized_by_view((yield :title), (t 'particular.default_page_title_prefix')) %></title>
+
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <meta http-equiv="content-language" content="en" />
 
@@ -12,7 +12,7 @@
                             '960-fluid',
                             'fg.menu',
                             'pallet_main',
-                            :cache => 'cached_stylesheets'  
+                            :cache => 'cached_stylesheets'
     %>
 
     <!-- Theme Stylesheet -->
@@ -28,7 +28,7 @@
     <![endif]-->
     <!--[if IE 6]>
       <%= stylesheet_link_tag '960-fluid-ie6' %>
-      <%= stylesheet_link_tag 'ie6' %>      
+      <%= stylesheet_link_tag 'ie6' %>
     <![endif]-->
 
     <%= stylesheet_link_tag 'jquery.autocomplete' %>
@@ -40,7 +40,7 @@
     <% if Rails.env == 'development' %>
       <%= javascript_include_tag 'debug', 'object_inspection' %>
     <% end %>
-    
+
     <!-- jquery -->
     <%= javascript_include_tag 'jquery/jquery-1.4.1.min',
                                'jrails',
@@ -73,7 +73,7 @@
 
     <%= javascript_tag "BGIFRAME = false;" %>
     <!--[if IE 6]>
-      <%= javascript_include_tag '/htc/iepngfix_tilebg.js' %>      
+      <%= javascript_include_tag '/htc/iepngfix_tilebg.js' %>
       <%= javascript_tag "BGIFRAME = true;" %>
       <%= javascript_include_tag 'jquery.bgiframe.min' %>
     <![endif]-->
@@ -85,31 +85,31 @@
     <%= javascript_tag "I18n.defaultLocale = '#{I18n.default_locale}'" %>
     <%= javascript_tag "I18n.locale = '#{I18n.locale}'" %>
 
-    <link rel="shortcut icon" href="<%= "../theme/#{PalletGlobalConfig.theme}/favicon.ico" %>" />    
+    <link rel="shortcut icon" href="<%= "../theme/#{PalletGlobalConfig.theme}/favicon.ico" %>" />
   </head>
 
 
 
   <body>
     <% unless controller.controller_name == 'user_sessions' %>
-  		<!-- main menu  -->
+      <!-- main menu  -->
       <%= render :partial => 'layouts/main_menu' %>
-  		<!-- /main menu -->
+      <!-- /main menu -->
 
-		  <!-- pallet info -->
-  		<div id="pallet_info" class="clearfix png">
+      <!-- pallet info -->
+      <div id="pallet_info" class="clearfix png">
         <div class="flow_frame clearfix m-top-15">
-  			  <div class="container_16">
-  			    <div class="grid_8 alpha">
-  			      <div id="logo" class="png"></div>
+          <div class="container_16">
+            <div class="grid_8 alpha">
+              <div id="logo" class="png"></div>
             </div>
             <div class="grid_8 omega"></div>
           </div>
         </div>
-  		</div>
+      </div>
 
       <div class="pallet_info_bottom png"></div>
-		  <!-- pallet info -->
+      <!-- pallet info -->
 
       <div id="error_flash_container">
         <%= render :partial => 'common/flash', :locals => { :flash => flash } %>
@@ -139,5 +139,5 @@
     <% else %>
       <%= yield %>
     <% end %>
-	</body>
+  </body>
 </html>

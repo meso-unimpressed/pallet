@@ -1,0 +1,26 @@
+# All your particular content should be defined within the
+# locales/particular folder. Use this to make your individual comments
+# and translations which are not meant to be common on all
+# implementations.
+#
+
+de:
+  particular:
+    default_page_title_prefix: 'PALLET© MESO Web Scapes'
+    login_message: |
+                    Dieser Service ist für autorisierte Benutzer bestimmt und kann vertrauliche Daten beinhalten.
+                    <p class='m-top-15'>
+                    <b>MESO Digital Interiors GmbH<br/>
+                    MESO Web Scapes</b><br/>
+                    Niddastraße 84<br/>
+                    60329 Frankfurt<br/>
+                    Deutschland<br/>
+                    welcome[a t]meso.net</p>
+
+    mail_signature: | --
+                     MESO Digital Interiors GmbH
+                     MESO Web Scapes
+                     Niddastraße 84
+                     60329 Frankfurt
+                     Germany
+                     +49 (0)69 24 000 330

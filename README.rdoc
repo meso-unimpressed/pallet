@@ -4,7 +4,7 @@
 
 == Description
 
-Pallet lets you up- and download files using your browser with a simple interface. 
+Pallet lets you up- and download files using your browser with a simple interface.
 
 == Features
 
@@ -30,12 +30,12 @@ Pallet lets you up- and download files using your browser with a simple interfac
 * Authlogic 2.0.13 (http://github.com/binarylogic/authlogic)
 * ruby-net-ldap 0.0.4 (http://net-ldap.rubyforge.org/rdoc/)
 * rubyzip 0.9.1 (gem install rubyzip)
-* SMTP or a Sendmail server for sending system emails (only if the system 
+* SMTP or a Sendmail server for sending system emails (only if the system
   should send emails to newly created users or to One-Click-Access recipients)
 
 === User Side
 
-* JavaScript activated in the browser for active usage (creating directories, 
+* JavaScript activated in the browser for active usage (creating directories,
   uploading files, administration)
 * Flash for multi-file upload
 
@@ -44,19 +44,22 @@ Pallet lets you up- and download files using your browser with a simple interfac
 1. Clone the repository
 
   git clone git://github.com/hanssen/pallet.git
-  
-2. Copy config/*.yml.example to config/*.yml
+
+2. Copy all config/*.yml.example to config/*.yml
 3. Edit the DB connection configuration in database.yml
 4. Edit the Settings configuration in settings.yml
 
-5. Start the setup script (will create DB, set random forgery protection secret, create admin account)
+6. Copy all config/locales/particular*.yml.example to config/locales/particular/*.yml
+7. Make changes to mail signature, login message and title prefix in config/locales/particular/*.yml
+
+7. Start the setup script (will create DB, set random forgery protection secret, create admin account)
 
   rake bootstrap RAILS_ENV=production
-  
-6. Start the server
+
+8. Start the server
 
   ruby script/server
-  
+
 === Optional
 
 If you want to use LDAP authentification:
@@ -80,8 +83,8 @@ You should have entered login data to create an admin account during setup.
 If not, please create an admin account now using the rake task:
 
   rake create_admin_user
-  
-Open the Pallet system in your browser and enter the login data for the 
+
+Open the Pallet system in your browser and enter the login data for the
 recently created admin user.
 
 The System Preferences page will appear, where you can adjust the default configuration.
@@ -109,5 +112,5 @@ Contributor(s):
 
 == License
 
-Copyright (c) 2010, MESO Web Scapes, Sascha Hanssen (hanssen@meso.net) 
+Copyright (c) 2010, MESO Web Scapes, Sascha Hanssen (hanssen@meso.net)
 See MIT-LICENSE.txt in this directory.

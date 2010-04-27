@@ -5,12 +5,5 @@ de:
       submit: Anmelden
       login: Benutzername
       password: Passwort
-      login_msg: "Dieser Service ist für autorisierte Benutzer bestimmt und kann vertrauliche Daten beinhalten.
+      login_message: #@see locales/particular/de.yml
 
-                  <p class='m-top-15'>
-                  <b>MESO Digital Interiors GmbH<br/>
-                  MESO Web Scapes</b><br/>
-                  Niddastraße 84<br/>
-                  60329 Frankfurt<br/>
-                  Deutschland<br/>
-                  welcome[a t]meso.net</p>"

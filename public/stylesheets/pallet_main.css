@@ -496,3 +496,9 @@ hr.overlay_35 {
   width: auto;
   margin: auto;
 }
+
+.fg-menu-container {
+  max-height: 600px;
+  overflow: auto;
+  overflow-x: hidden;
+}

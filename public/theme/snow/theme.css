@@ -81,12 +81,14 @@ label {
   border-bottom: 0;
   -moz-box-shadow: 0px 9px 8px #bfc2c3;
   -webkit-box-shadow: 0px 9px 8px #bfc2c3;
+  box-shadow: 0px 9px 8px #bfc2c3;
 }
 #drop_stack_actions {
   background: #dfe2e3;
   border-top: 0;
   -moz-box-shadow: 0px 4px 4px #cfd2d3;
   -webkit-box-shadow: 0px 4px 4px #cfd2d3;
+  box-shadow: 0px 4px 4px #cfd2d3;
 }
 #drop_stack_listel {
   background: #dfe2e3;
@@ -105,6 +107,7 @@ label {
   background: #FFFFFF;
   -moz-box-shadow: 0px 0px 26px #777777;
   -webkit-box-shadow: 0px 0px 26px #777777;
+  box-shadow: 0px 0px 26px #777777;
 }
 
 .bordure_top {
@@ -126,6 +129,7 @@ label {
 .fg-menu-container {
   -moz-box-shadow: 0px 9px 8px #e6e9ea;
   -webkit-box-shadow: 0px 9px 8px #e6e9ea;
+  box-shadow: 0px 9px 8px #e6e9ea;
   z-index: 100;
 }
 
@@ -168,6 +172,7 @@ label {
 .qtip-wrapper {
   -moz-box-shadow: 0px 6px 6px #777777;
   -webkit-box-shadow: 0px 6px 6px #777777;
+  box-shadow: 0px 6px 6px #777777;
 }
 
 .tooltip {

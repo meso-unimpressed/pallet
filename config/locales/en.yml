@@ -16,7 +16,7 @@ en:
   languages:
     en: english
     de: german
-    
+
   # common words
   submit: Submit
   save: Save
@@ -31,7 +31,7 @@ en:
   options: Options
 
   # common phrases
-  please_confirm: Please confirm 
+  please_confirm: Please confirm
   are_you_sure: Are you sure?
 
   time:
@@ -45,8 +45,8 @@ en:
   pallet_credits: '<div id="pallet_about_qtip"><b>PALLET</b> is an open source file exchange system. <br/><br/>
                    <div class="ui-widget ui-state-highlight p-all-5 m-bottom-30">Think of a pallet as a portable platform for handling<br/>
                    or moving materials and packages.</div>
-                   <a href="http://meso.net"><img src="/images/meso_web_scapes.png" width="176" height="18" class="png m-bottom-10" /></a><br/>
-                   PALLET is mainly developed by <a href="http://meso.net">MESO Web Scapes</a><br/> (Sascha Hanßen, Markus Seeger, Mathias Wollin).
+                   <a href="http://meso.net" class="left"><img src="/images/meso.png" width="62" height="63" class="png m-bottom-10 m-right-10" /></a>
+                   PALLET is mainly developed <br/>by <a href="http://meso.net"><b>MESO Web Scapes</b></a><br/> (Sascha Hanßen, Markus Seeger, Mathias Wollin).
                    <br/><br/>
                    <a href="" class="button-icon-text right"><span class="ui-icon ui-icon-comment"></span>feedback</a>
                    <a href="" class="button-icon-text right"><span class="ui-icon ui-icon-home"></span>about</a></div>

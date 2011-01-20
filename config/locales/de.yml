@@ -16,7 +16,7 @@ de:
   languages:
     en: englisch
     de: deutsch
-    
+
   # common words
   submit: Senden
   save: Speichern
@@ -42,13 +42,13 @@ de:
       short: "%e. %b"
       long: "%e. %B %Y"
       only_day: "%e"
- 
+
     day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
     order: [ :day, :month, :year ]
-  
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
@@ -56,10 +56,10 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
       time: "%H:%M"
       date_time24: "%d.%m.%Y %H:%M"
- 
+
     am: "vormittags"
     pm: "nachmittags"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -102,7 +102,7 @@ de:
       day: "Tag"
       month: "Monat"
       year: "Jahr"
- 
+
   number:
     format:
       precision: 2
@@ -137,13 +137,13 @@ de:
           mb: "MB"
           gb: "GB"
           tb: "TB"
- 
+
   support:
     array:
       words_connector: ", "
       two_words_connector: " und "
       last_word_connector: " und "
- 
+
   activerecord:
     errors:
       template:
@@ -151,7 +151,7 @@ de:
           one: "Konnte dieses {{model}} Objekt nicht speichern: 1 Fehler."
           other: "Konnte dieses {{model}} Objekt nicht speichern: {{count}} Fehler."
         body: "Bitte überprüfen Sie die folgenden Felder:"
- 
+
       messages:
         inclusion: "ist kein gültiger Wert"
         exclusion: "ist nicht verfügbar"
@@ -173,7 +173,7 @@ de:
         odd: "muss ungerade sein"
         even: "muss gerade sein"
       models:
- 
+
 #      attributes:
 #        page:
 #          title_de: "NAME [DE]"
@@ -182,10 +182,10 @@ de:
   pallet_credits:  '<div id="pallet_about_qtip"><b>PALLET</b> is an open source file exchange system. <br/><br/>
                    <div class="ui-widget ui-state-highlight p-all-5 m-bottom-30">Think of a pallet as a portable platform for handling<br/>
                    or moving materials and packages.</div>
-                   <a href="http://meso.net"><img src="/images/meso_web_scapes.png" width="176" height="18" class="png m-bottom-10" /></a><br/>
-                   PALLET is mainly developed by <a href="http://meso.net">MESO Web Scapes</a><br/> (Sascha Hanßen, Markus Seeger, Mathias Wollin).
+                   <a href="http://meso.net" class="left"><img src="/images/meso.png" width="62" height="63" class="png m-bottom-10 m-right-10" /></a>
+                   PALLET is mainly developed <br/>by <a href="http://meso.net"><b>MESO Web Scapes</b></a><br/> (Sascha Hanßen, Markus Seeger, Mathias Wollin).
                    <br/><br/>
                    <a href="" class="button-icon-text right"><span class="ui-icon ui-icon-comment"></span>feedback</a>
-                   <a href="http://pallet.meso.net" class="button-icon-text right"><span class="ui-icon ui-icon-home"></span>about</a></div>
+                   <a href="" class="button-icon-text right"><span class="ui-icon ui-icon-home"></span>about</a></div>
                    '
 

@@ -18,3 +18,4 @@ pallet_container/*/*
 *.swp
 public/javascripts/cached_javascripts.js
 public/stylesheets/cached_stylesheets.css
+public/javascripts/messages.js

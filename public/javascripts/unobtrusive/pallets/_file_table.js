@@ -54,6 +54,10 @@ function create_oca_clips() {
   var links = $('#oca_list .oca_link a');
   var token_url = '';
 
+  // do nothing if no OCA present
+  // NOTE: don't try to query links.length, since OCA help text contains an oca_link ...
+  if ($('.oca_tokens').length < 1) { return; }
+
   //debug(links.length - 1);
 
   var last_button = $('#oca_clip_button_' + (links.length-1));
@@ -85,6 +89,7 @@ function init_oca_buttons() {
         return false;
     });
     init_hover_states();
+
     create_oca_clips();
   });
 }
